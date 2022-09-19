@@ -6,7 +6,7 @@
   </head>
   <body>
     <h1>Update Product</h1>
-    <!--Mapping and binding the object's id with ModelMap -->>
+    <!--Mapping and binding the object's id with ModelMap -->
     <form th:action="@{/updateProduct/{id}(id=${product.id})}" th:object="${product}" method="post">
         Product Name <input type="text" th:name="productName">
         Price <input type="number" th:name="productPrice"> <br>

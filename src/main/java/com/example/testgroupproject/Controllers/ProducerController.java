@@ -1,7 +1,6 @@
 package com.example.testgroupproject.Controllers;
 
 import com.example.testgroupproject.Models.Producer;
-import com.example.testgroupproject.Models.Product;
 import com.example.testgroupproject.Services.ProducerService.ProducerServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
