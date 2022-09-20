@@ -38,9 +38,9 @@ public class HomeController {
         return("/home");
     }
 
-    @RequestMapping(value = "/sendToIndex", method = { RequestMethod.GET, RequestMethod.POST })
-    public String redirectToIndex() {
-        return("/Home/index");
+    @RequestMapping(value = "/sendToShopByCounty", method = { RequestMethod.GET, RequestMethod.POST })
+    public String redirectToShopByCounty() {
+        return("/Product/productsByCounty");
     }
 
     @RequestMapping(value = "/sendToProduct", method = { RequestMethod.GET, RequestMethod.POST })

@@ -1,38 +1,56 @@
-<!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" >
 <head>
-    <meta charset="UTF-8">
-    <title>Product List</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- font awsome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Products By County</title>
+    <!-- FavIcon   -->
+    <link rel="stylesheet" type="text/css" th:href="@{/img/faviconHome.png}"/>
+    <!-- Style Css -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/Counties.css}">
+    <!-- Custom Js link -->
+    <link rel="stylesheet" href="/js">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>Product List</h1>
-
-  <table border="1">
-      <thead>
-      <tr>
-          <th>Product Name</th>
-          <th>Product Price</th>
-          <th>Product Description</th>
-          <th>Discount</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr th:each = "product: ${products}">
-          <td th:text="${product.getProductName()}"/>
-          <td th:text="${product.getProductPrice()}"/>
-          <td th:text="${product.getProductInfo()}"/>
-          <td th:text="${product.getPossibleDiscount()}"/>
-          <td><a th:href="@{/editProduct/{id}(id=${product.id})}">Update</a></td>
-          <td><a th:href="@{/deleteProduct/{id}(id=${product.id})}">Delete</a></td>
-      </tr>
-      </tbody>
-  </table>
-  <br>
-      <form action="/" method="post">
-            <button type="submit" >Home</button>
-      </form>
-  <br>
-    <!--    Simple approach  -->
-      <a href="http://localhost:8080/"><button>Home2</button></a>
+<div th:replace="~{Fragments/Navbar :: navigation}"></div>
+    <div>
+      <h1>Product List</h1>
+      <table border="1">
+          <thead>
+          <tr>
+              <th>Product Name</th>
+              <th>Product Price</th>
+              <th>Product Description</th>
+              <th>Discount</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each = "product: ${products}">
+              <td th:text="${product.getProductName()}"/>
+              <td th:text="${product.getProductPrice()}"/>
+              <td th:text="${product.getProductInfo()}"/>
+              <td th:text="${product.getPossibleDiscount()}"/>
+              <td><a th:href="@{/editProduct/{id}(id=${product.id})}">Update</a></td>
+              <td><a th:href="@{/deleteProduct/{id}(id=${product.id})}">Delete</a></td>
+          </tr>
+          </tbody>
+      </table>
+      <br>
+          <form action="/" method="post">
+                <button type="submit" >Home</button>
+          </form>
+      <br>
+    </div>
+<div th:replace="~{Fragments/Footer :: footer}"></div>
 </body>
 </html>

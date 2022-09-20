@@ -1,10 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Footer</title>
-</head>
-<body>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+        <head>
+            <meta charset="UTF-8">
+            <title>Footer</title>
+        </head>
+        <body>
+            <div class="containerFooter" th:fragment="footer">
+                <!-- Start Footer -->
+                <footer>
+                    <div class="container">
+                        <div class="row text-light text-center py-4 justify-content-center">
 
-</body>
+                            <div class="col-sm-10 col-md-8 col-lg-6">
+                                <a th:href="@{/}" class="navbar-brand"><img id="logoimg" src="/img/logo.png"
+                                                                            alt="Logo" title="Logo"></a>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe deleniti, aspernatur
+                                    consequatur earum distinctio fugit numquam rem explicabo illo excepturi repellat.
+                                </p>
+                                <ul class="social pt-3">
+                                    <li><a href="#" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                                    <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                    <li><a href="#" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                                    <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </footer>
+                <!-- End Of Footer -->
+
+                <!-- Start Socket -->
+                <div class="socket text-light text-center py-3">
+                    <p>&copy; <a th:href="@{/#}">RM</a></p>
+                </div>
+                <!-- End Socket -->
+
+
+            </div>
+        </body>
+
 </html>
