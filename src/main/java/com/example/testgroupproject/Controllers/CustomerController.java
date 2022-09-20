@@ -18,13 +18,13 @@ public class CustomerController {
     //
     @PostMapping("/insertCustomer")
     public String insertCustomer(@RequestParam("cusName") String cusName,
-                                @RequestParam("cusLName") String cusLName,
-                                @RequestParam("cusEmail") String cusEmail,
-                                @RequestParam("cusPhone") Integer cusPhone,
-                                @RequestParam("cusPC") Integer cusPC,
-                                @RequestParam("cusStreet") String cusStreet,
-                                @RequestParam("cusStreetNr") Integer cusStreetNr,
-                                @RequestParam("cusUsername") String cusUsername,
+                                 @RequestParam("cusLName") String cusLName,
+                                 @RequestParam("cusEmail") String cusEmail,
+                                 @RequestParam("cusPhone") Integer cusPhone,
+                                 @RequestParam("cusPC") Integer cusPC,
+                                 @RequestParam("cusStreet") String cusStreet,
+                                 @RequestParam("cusStreetNr") Integer cusStreetNr,
+                                 @RequestParam("cusUsername") String cusUsername,
                                  @RequestParam("cusPassword") String cusPassword,
                                  ModelMap mm){
 

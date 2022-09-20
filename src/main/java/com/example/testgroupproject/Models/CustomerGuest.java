@@ -2,6 +2,7 @@ package com.example.testgroupproject.Models;
 
 import javax.persistence.*;
 
+
 @Entity
 @Table(name = "customer_guest")
 public class CustomerGuest {
@@ -51,6 +52,11 @@ public class CustomerGuest {
 
     public CustomerGuest() {
 
+    }
+
+    public CustomerGuest(String name, String pass) {
+        this.cusUsername = name;
+        this.cusPassword = pass;
     }
 
     public Integer getId() {

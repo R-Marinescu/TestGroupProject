@@ -4,6 +4,7 @@ import com.example.testgroupproject.Models.CustomerGuest;
 import com.example.testgroupproject.Repositories.CustomerRepo;
 import com.example.testgroupproject.Services.CustomerService.CustomerServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -39,6 +40,13 @@ public class ImpCustomerService implements CustomerServiceInterface {
     public void updateCustomer(CustomerGuest c) {
         customerRepo.save(c);
     }
+
+
+   public CustomerGuest findByCusUsername(String userName){
+
+       return customerRepo.findByCusUsername(userName);
+   }
+
 
 
 }

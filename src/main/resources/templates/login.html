@@ -22,17 +22,17 @@
 
 </head>
 <body>
-<h1>Login</h1>
-<form class="login-form" method="post" th:action="@{/loginUser}" th:object="${customer_guest}">
-    <label for="username">Username</label>
-    <input type="text" id="username" name="username" th:field="*{cus_username}"></br>
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password" th:field="*{cus_password}"></br>
-    <button type="submit" class="btn btn-primary">LogIn</button>
-    <button type="submit" class="btn btn-primary">Register Customer</button>
-    <button type="submit" class="btn btn-primary">Register Producer</button>
-
-</form>
+    <h1>Login</h1>
+    <form class="login-form" method="post" th:action="@{/loginUser}" th:object="${user}">
+        <label for="username">Username</label>
+        <input type="text" id="username" th:name="cusUsername" th:field="*{cusUsername}"></br>
+        <label for="password">Password</label>
+        <input type="password" id="password" th:name="password" th:field="*{cusPassword}"></br>
+        <button type="submit" class="btn btn-primary">LogIn</button>
+        <button type="submit" class="btn btn-primary">Register Customer</button>
+        <button type="submit" class="btn btn-primary">Register Producer</button>
+        <h1>hi</h1>
+    </form>
 
 
 </body>
