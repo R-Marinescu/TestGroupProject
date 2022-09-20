@@ -31,7 +31,13 @@ public class Producer {
     @Column(name = "prod_Bus_Title", length = 45)
     private String prodBusTitle;
 
-    public Producer(String prodFname, String prodLname, String prodAddress, String prodArea, String prodEmail, String prodIban, String prodBusTitle) {
+    @Column(name = "prod_username", length = 45)
+    private String prodUsername;
+
+    @Column(name = "prod_password", length = 45)
+    private String prodPassword;
+
+    public Producer(String prodFname, String prodLname, String prodAddress, String prodArea, String prodEmail, String prodIban, String prodBusTitle, String prodUsername, String prodPassword) {
         this.prodFname = prodFname;
         this.prodLname = prodLname;
         this.prodAddress = prodAddress;
@@ -39,6 +45,8 @@ public class Producer {
         this.prodEmail = prodEmail;
         this.prodIban = prodIban;
         this.prodBusTitle = prodBusTitle;
+        this.prodUsername = prodUsername;
+        this.prodPassword = prodPassword;
     }
 
     public Producer() {
@@ -107,5 +115,14 @@ public class Producer {
     public void setProdBusTitle(String prodBusTitle) {
         this.prodBusTitle = prodBusTitle;
     }
+
+    public String getProdUsername() {return prodUsername;}
+
+
+    public void setProdUsername(String prodUsername) {this.prodUsername = prodUsername;}
+
+    public String getProdPassword() {return prodPassword;}
+
+    public void setProdPassword(String prodPassword) {this.prodPassword = prodPassword;}
 
 }

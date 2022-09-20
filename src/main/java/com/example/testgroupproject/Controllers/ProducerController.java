@@ -1,6 +1,8 @@
 package com.example.testgroupproject.Controllers;
 
+import com.example.testgroupproject.Models.CustomerGuest;
 import com.example.testgroupproject.Models.Producer;
+import com.example.testgroupproject.Repositories.ProducerRepo;
 import com.example.testgroupproject.Services.ProducerService.ProducerServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,22 +16,35 @@ public class ProducerController {
     @Autowired
     ProducerServiceInterface producerService;
 
+    @Autowired
+    private ProducerRepo repo;
+
     @PostMapping("/insertProducer")
-    public String insertProducer(@RequestParam("ProName") String ProName,
-                                 @RequestParam("ProLName") String ProLName,
-                                 @RequestParam("address") String address,
-                                 @RequestParam("county") String county,
-                                 @RequestParam("email") String email,
-                                 @RequestParam("iban") String iban,
-                                 @RequestParam("business") String business,
+    public String insertProducer(@RequestParam("prodFname") String prodFname,
+                                 @RequestParam("prodLname") String prodLname,
+                                 @RequestParam("prodAddress") String prodAddress,
+                                 @RequestParam("prodArea") String prodArea,
+                                 @RequestParam("prodEmail") String prodEmail,
+                                 @RequestParam("prodIban") String prodIban,
+                                 @RequestParam("prodBusTitle") String prodBusTitle,
+                                 @RequestParam("ProdUsername") String prodUsername,
+                                 @RequestParam("ProdPassword") String prodPassword,
                                  ModelMap mm){
         //Invokes constructor and creates new obj, then calls Interface from Services and implements the method insertProducer from impProducerService
-        Producer producer = new Producer(ProName, ProLName, address, county, email, iban, business);
+        Producer producer = new Producer(prodFname, prodLname, prodAddress, prodArea, prodEmail, prodIban, prodBusTitle, prodUsername, prodPassword);
         producerService.insertProducer(producer);
 
         //Stores the value of the method getAllProducers into "producers" and send it to the html page assigned to 'return'.
         mm.addAttribute("producers", producerService.getAllProducers());
         return "Producer/ProducerList";
+    }
+
+    @PostMapping("/addProducer")
+    public String processRegister(Producer producer) {
+
+        repo.save(producer);
+
+        return "register-success";
     }
 
     @GetMapping("/editProducer/{id}")

@@ -2,28 +2,94 @@
 <html xmlns:th="https://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Customer</title>
+    <title>Registration</title>
 </head>
-  <body>
-    <h1>Register Customer</h1>
-    <form th:action="@{/insertCustomer}" method="post">
-        Name <input type="text" th:name="cusName"><br>
-        <br>
-        Last Name <input type="text" th:name="cusLName"><br>
-        <br>
-        Email <input type="text" th:name="cusEmail"> <br>
-        <br>
-        Phone number <input type="number" th:name="cusPhone"><br>
-        <br>
-        Postal Code <input type="number" th:name="cusPC"><br>
-        <br>
-        Street <input type="text" th:name="cusStreet"><br>
-        <br>
-        Street number <input type="number" th:name="cusStreetNr"><br>
-        <br>
-        UserName <input type="text" th:name="cusUsername">
-        UserName <input type="text" th:name="cusPassword">
-        <input type="submit">
-    </form>
-  </body>
+<body>
+<h1>Customer Registration Form - Sign Up</h1>
+<form th:action="@{/insertCustomer}" method="post" th:object="${customer}">
+    <div class="cus-register-form">
+
+        <div class="m-3">
+            <div class="row">
+                <label class="col-form-label col-4">First Name</label>
+                <div class="col-8">
+                    <input type="text" class="form-field" field="*{cusFname}" name="cusFname" required/>
+                </div>
+            </div>
+            </br>
+
+            <div class="row">
+                <label class="col-form-label col-4">Last Name</label>
+                <div class="col-8">
+                    <input type="text" class="form-field" field="*{cusLname}" name="cusLname" required/>
+                </div>
+            </div>
+            </br>
+
+
+            <div class="row">
+                <label class="col-form-label col-4">Email</label>
+                <div class="col-8">
+                    <input type="email" class="form-field" field="*{cusEmail}" name="cusEmail" required/>
+                </div>
+            </div>
+            </br>
+
+            <div class="row">
+                <label class="col-form-label col-4">Phone Number</label>
+                <div class="col-8">
+                    <input type="number" class="form-field" field="*{cusPhonenr}" name="cusPhonenr"required/>
+                </div>
+            </div>
+            </br>
+
+            <div class="row">
+                <label class="col-form-label col-4">Street Name</label>
+                <div class="col-8">
+                    <input type="text" class="form-field" field="*{cusStreet}" name="cusStreet"required/>
+                </div>
+            </div>
+            </br>
+
+            <div class="row">
+                <label class="col-form-label col-4">Street Number</label>
+                <div class="col-8">
+                    <input type="text" class="form-field" field="*{cusStreetnr}" name="cusStreetnr"required/>
+                </div>
+            </div>
+            </br>
+
+            <div class="row">
+                <label class="col-form-label col-4">Postal Code</label>
+                <div class="col-8">
+                    <input type="text" class="form-field" field="*{cusPostalc}" name="cusPostalC" required/>
+                </div>
+            </div>
+            </br>
+
+            <div class="row">
+                <label class="col-form-label col-4">Username</label>
+                <div class="col-8">
+                    <input type="text" class="form-field" field="*{cusUsername}" name="cusUsername" required minlength="4" maxlength="10"/>
+                </div>
+            </div>
+            </br>
+
+
+            <div class="row">
+                <label class="col-form-label col-4">Password</label>
+                <div class="col-8">
+                    <input type="password" class="form-field" field="*{cusPassword}" name="cusPassword" required minlength="4" maxlength="10"/>
+                </div>
+            </div>
+            </br>
+
+
+            <button type="submit" class="btn btn-primary">Register</button>
+        </div>
+    </div>
+</form>
+</body>
 </html>
+
+
