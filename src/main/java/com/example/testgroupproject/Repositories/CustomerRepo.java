@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CustomerRepo extends JpaRepository<CustomerGuest, Integer> {
-
+    CustomerGuest findByCusUsername(String cusUsername);
 }

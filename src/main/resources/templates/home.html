@@ -1,5 +1,5 @@
 <!doctype html>
-<html xmlns:th="https://www.thymeleaf.org" xmlns:custom="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org" >
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -26,6 +26,11 @@
     <div class="top-bar">
         <div class="container">
             <div class="col-12 text-right">
+              <div class="buttons text-left">
+                <a th:href="@{/login}">Log In</a>
+                <a th:href="@{/register-customer}">Register Customer</a>
+                <a th:href="@{/register-prod}">Register Producer</a>
+              </div>
                 <p><a href="tel:+2108374924">Call us at 210(083)</a></p>
             </div>
         </div>

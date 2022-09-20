@@ -31,7 +31,12 @@ public class CustomerGuest {
     @Column(name = "cus_StreetNr")
     private Integer cusStreetnr;
 
-    public CustomerGuest(String cusFname, String cusLname, String cusEmail, Integer cusPhonenr, Integer cusPostalc, String cusStreet, Integer cusStreetnr) {
+    @Column(name = "cus_username", length = 45)
+    private String cusUsername;
+
+    @Column(name = "cus_password", length = 45)
+    private String cusPassword;
+    public CustomerGuest(String cusFname, String cusLname, String cusEmail, Integer cusPhonenr, Integer cusPostalc, String cusStreet, Integer cusStreetnr, String cusUsername, String cusPassword) {
         this.cusFname = cusFname;
         this.cusLname = cusLname;
         this.cusEmail = cusEmail;
@@ -39,6 +44,9 @@ public class CustomerGuest {
         this.cusPostalc = cusPostalc;
         this.cusStreet = cusStreet;
         this.cusStreetnr = cusStreetnr;
+        this.cusUsername = cusUsername;
+        this.cusPassword = cusPassword;
+
     }
 
     public CustomerGuest() {
@@ -109,4 +117,19 @@ public class CustomerGuest {
         this.cusStreetnr = cusStreetnr;
     }
 
+    public String getCusUsername() {
+        return cusUsername;
+    }
+
+    public void setCusUsername(String cusUsername) {
+        this.cusUsername = cusUsername;
+    }
+
+    public String getCusPassword() {
+        return cusPassword;
+    }
+
+    public void setCusPassword(String cusPassword) {
+        this.cusPassword = cusPassword;
+    }
 }

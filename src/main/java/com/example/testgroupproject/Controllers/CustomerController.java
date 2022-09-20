@@ -24,10 +24,12 @@ public class CustomerController {
                                 @RequestParam("cusPC") Integer cusPC,
                                 @RequestParam("cusStreet") String cusStreet,
                                 @RequestParam("cusStreetNr") Integer cusStreetNr,
-                                ModelMap mm){
+                                @RequestParam("cusUsername") String cusUsername,
+                                 @RequestParam("cusPassword") String cusPassword,
+                                 ModelMap mm){
 
         //Invokes constructor and creates new obj, then calls Interface from Services and implements the method insertCustomer from impCustomerService
-        CustomerGuest customer = new CustomerGuest(cusName, cusLName, cusEmail, cusPhone, cusPC, cusStreet, cusStreetNr);
+        CustomerGuest customer = new CustomerGuest(cusName, cusLName, cusEmail, cusPhone, cusPC, cusStreet, cusStreetNr, cusUsername, cusPassword);
         customerService.insertCustomer(customer);
         //Stores the value of the method getAllCustomers into "customers" and send it to the html page assigned to 'return'.
         mm.addAttribute("customers", customerService.getAllCustomers());
