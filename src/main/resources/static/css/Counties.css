@@ -1,0 +1,53 @@
+/*===== Featured counties ===== */
+.container-counties {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+.container-counties .container-counties-inner{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 155fr));
+    gap: 2rem;
+}
+
+.container-counties .container-counties-inner .county{
+    text-align: center;
+    padding:3rem 2rem;
+    background: #fff;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    outline: .1rem solid #ccc;
+    outline-offset: -1.5rem;
+    cursor: pointer;
+}
+.container-counties .container-counties-inner .county:hover {
+    outline: .1rem solid #222;
+    outline-offset: 0;
+}
+
+.container-counties .container-counties-inner .county img{
+    
+    height: 20rem;
+    width: 18rem;
+
+}
+
+.container-counties .container-counties-inner .county:hover img {
+    transform: scale(.9);
+}
+
+.container-counties .container-counties-inner .county h3 {
+   padding: .5rem 0;
+   font-size: 2rem;
+   color: #444; 
+}
+
+.container-counties .container-counties-inner .county:hover h3 {
+    color: #0388fc;
+}
+
+.container-counties .container-counties-inner .county .price {
+    font-size: 1.5rem;
+    color: #444; 
+ }
+/*===== End of Featured counties ===== */

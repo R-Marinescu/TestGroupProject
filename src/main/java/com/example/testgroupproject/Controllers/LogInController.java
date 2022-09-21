@@ -20,7 +20,6 @@ public class LogInController {
     CustomerServiceInterface customerService;
 
 
-
     @PostMapping("/loginUser")
     public String loginUser(@ModelAttribute("user") CustomerGuest user, Model m){
 

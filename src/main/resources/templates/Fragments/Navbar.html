@@ -1,38 +1,83 @@
-<!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org" xmlns:custom="http://www.w3.org/1999/xhtml" lang="en">
-
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" >
     <head>
-
-        <meta charset="UTF-8">
-        <title>Title</title>
-
         <!-- Required meta tags -->
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- font awsome cdn link -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
         <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-              rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-        <link rel="stylesheet" href="/css/styleNav.css">
-
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <title>Home</title>
+        <!-- FavIcon   -->
+        <link rel="stylesheet" type="text/css" th:href="@{/img/faviconHome.png}"/>
+        <!-- Style Css -->
+        <link rel="stylesheet" href="/css/style.css">
+        <!-- Custom Js link -->
+        <link rel="stylesheet" href="/js">
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     </head>
     <body>
-        <header id="header" class="fixed-top" th:fragment="Navbar">
-            <div class="container d-flex align-items-center">
-                <h1 class="logo mr-auto"><a href="#">EShop</a></h1>
-                <!-- Navigation Menu-->
-                <nav class="nav-menu d-none d-lg-block">
-                    <ul>
-                        <li class="active"><a th:href="@{/}">Home</a></li>
-                        <li><a href="#" th:href="@{sendToProductList}" >Product List</a></li>
-                        <li><a href="#" th:href="@{#}">About</a></li>
-                        <li><a href="#" th:href="@{#}">Contact</a></li>
-                    </ul>
-                </nav>
-                <!--End Nav -->
+        <div class="containerNav" th:fragment="navigation">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="container">
+                    <div class="col-12 text-right">
+                        <div class="buttons text-left">
+                            <a th:href="@{sendToCustomer}">Register Customer</a>
+                            <a th:href="@{sendToLogin}">Log In</a>
+                            <a th:href="@{sendToProducer}">Register Producer</a>
+                        </div>
+                        <p><a href="tel:+2108374924">Call us at 210(083)</a></p>
+                    </div>
+                </div>
             </div>
-    </header>
+            <!-- End Top Bar -->
+
+            <!-- Navigation bar-->
+            <nav class="navbar bg-light navbar-light navbar-expand-lg">
+                <div class="container">
+
+                    <a th:href="@{/}" class="navbar-brand"><img id="logo" src="/img/logo.png"
+                                                                alt="Logo" title="Logo"></a>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarResponsive">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item"><a th:href="@{/}" class="nav-link active">Home</a></li>
+                            <li class="nav-item"><a th:href="@{sendToProductList}" class="nav-link ">Shop</a></li>
+                            <li class="nav-item"><a th:href="@{sendToIndex}" class="nav-link">Services</a></li>
+                            <!-- Navbar dropdown -->
+                            <li class="nav-item dropdown">
+                                <a href=""
+                                   id="navbarDropdown"
+                                   class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false">
+                                    Dropdown
+                                </a>
+                                <!-- Dropdown menu -->
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a href="" class="dropdown-item nav-link">Action</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a href="" class="dropdown-item nav-link">AnotherAction</a></li>
+                                </ul>
+                                <!-- End of Dropdown -->
+                            </li>
+                            <!-- End of Navbar dropdown -->
+                            <li class="nav-item"><a href="" class="nav-link">Contact Us</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
+            <!-- End of Navigation -->
+        </div>
     </body>
 </html>
