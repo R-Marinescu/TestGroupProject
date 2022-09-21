@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ProducerRepo extends JpaRepository<Producer, Integer> {
+    Producer findByProdUsername(String name);
 }

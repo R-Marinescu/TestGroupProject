@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" >
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -8,32 +8,194 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Log In</title>
+    <title>Home</title>
     <!-- FavIcon   -->
     <link rel="stylesheet" type="text/css" th:href="@{/img/faviconHome.png}"/>
     <!-- Style Css -->
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/login_style.css">
     <!-- Custom Js link -->
     <link rel="stylesheet" href="/js">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+    <!--javascript for the toggle customer/producer-->
+    <script type="text/javascript">
+        function showCustomerLogIn() {
+            document.getElementById("producer").style.display = "none";
+            document.getElementById("customer").style.display = "block";
+        }
+    </script>
+    <script type="text/javascript">
+        function showProducerLogIn() {
+            document.getElementById("customer").style.display = "none";
+            document.getElementById("producer").style.display = "block";
+        }
+    </script>
 </head>
 <body>
-    <h1>Login</h1>
-    <form class="login-form" method="post" th:action="@{/loginUser}" th:object="${user}">
-        <label for="username">Username</label>
-        <input type="text" id="username" th:name="cusUsername" th:field="*{cusUsername}"></br>
-        <label for="password">Password</label>
-        <input type="password" id="password" th:name="password" th:field="*{cusPassword}"></br>
-        <button type="submit" class="btn btn-primary">LogIn</button>
-        <button type="submit" class="btn btn-primary">Register Customer</button>
-        <button type="submit" class="btn btn-primary">Register Producer</button>
-        <h1>hi</h1>
-    </form>
+<div class="containerNav" th:fragment="navigation">
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="col-12 text-right">
+                <div class="buttons text-left">
+                    <a th:href="@{sendToLogin}">Log In</a>
+                    <a th:href="@{sendToProducer}">Register</a>
+                </div>
+                <p><a href="tel:+2108374924">Call us at 210(083)</a></p>
+            </div>
+        </div>
+    </div>
+    <!-- End Top Bar -->
+
+    <!-- Navigation bar-->
+    <nav class="navbar bg-light navbar-light navbar-expand-lg">
+        <div class="container">
+
+            <a th:href="@{/}" class="navbar-brand"><img id="logo" src="/img/logo.png"
+                                                        alt="Logo" title="Logo"></a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a th:href="@{/}" class="nav-link active">Home</a></li>
+                    <li class="nav-item"><a th:href="@{sendToProductList}" class="nav-link ">Shop</a></li>
+                    <li class="nav-item"><a th:href="@{sendToIndex}" class="nav-link">Services</a></li>
+                    <!-- Navbar dropdown -->
+                    <li class="nav-item dropdown">
+                        <a href=""
+                           id="navbarDropdown"
+                           class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <!-- Dropdown menu -->
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a href="" class="dropdown-item nav-link">Action</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a href="" class="dropdown-item nav-link">AnotherAction</a></li>
+                        </ul>
+                        <!-- End of Dropdown -->
+                    </li>
+                    <!-- End of Navbar dropdown -->
+                    <li class="nav-item"><a href="" class="nav-link">Contact Us</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <!-- End of Navigation -->
+</div>
+
+<!--START OF LOG IN FOR CUSTOMER AND PRODUCER WITH THE REGISTER TEMPLATE-->
+<div class="container login">
+    <div class="row">
+        <div class="col-md-3 login-left">
+            <img src="/images/logo_image.jfif" alt="">
+            <h2>Welcome</h2>
+            <p>Thank you for being registered in our Website! If you are not press the register button below to register</p>
+            <a th:href="@{sendToProducer}">Register</a>
+        </div>
+
+        <div class="col-md-9 login-right">
+            <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="customer-tab" data-toggle="tab" href="#customer"
+                       on-click="showCustomerLogIn()" role="tab" aria-controls="customer"
+                       aria-selected="true">
+                        Customer
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" id="producer-tab" data-toggle="tab" href="#producer"
+                       on-click="showProducerLogIn()" role="tab" aria-controls="producer"
+                       aria-selected="false">
+                        Producer
+                    </a>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="customer" role="tabpanel" aria-labelledby="customer-tab">
+                    <h3 class="login-heading">Login as a Customer</h3>
+                    <div class="row login-form">
+                        <div class="col-md-8">
+                            <div class="log-form">
+                                <form class="form-login" method="post" th:action="@{/loginUser}" th:object="${user}">
+                                    <label for="username">Username</label>
+                                    <input type="text" id="username" th:name="cusUsername" th:field="*{cusUsername}"></br>
+                                    <label for="password">Password</label>
+                                    <input type="password" id="password" th:name="password" th:field="*{cusPassword}"></br>
+                                    <button type="submit" class="btn btn-primary">LogIn</button>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade show" id="producer" role="tabpanel" aria-labelledby="producer-tab">
+                    <h3 class="login-heading">Login as a Producer</h3>
+                    <div class="row login-form">
+                        <div class="col-md-8">
+                            <div class="log-form">
+                                <form class="form-login" method="post" th:action="@{/loginProducer}" th:object="${producer}">
+                                    <label for="username">Username</label>
+                                    <input type="text" id="username-prod" th:name="prodUsername" th:field="*{prodUsername}"></br>
+                                    <label for="password">Password</label>
+                                    <input type="password" id="password-prod" th:name="prodPassword" th:field="*{prodPassword}"></br>
+                                    <button type="submit" class="btn btn-primary">LogIn</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--START OF FOOTER-->
+<div class="containerFooter" th:fragment="footer">
+    <footer>
+        <div class="container">
+            <div class="row text-light text-center py-4 justify-content-center">
+
+                <div class="col-sm-10 col-md-8 col-lg-6">
+                    <a th:href="@{/}" class="navbar-brand"><img id="logoimg" src="/img/logo.png"
+                                                                alt="Logo" title="Logo"></a>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe deleniti, aspernatur
+                        consequatur earum distinctio fugit numquam rem explicabo illo excepturi repellat.
+                    </p>
+                    <ul class="social pt-3">
+                        <li><a href="#" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <!-- Start Socket -->
+    <div class="socket text-light text-center py-3">
+        <p>&copy; <a th:href="@{/#}">RM</a></p>
+    </div>
+    <!-- End Socket -->
+</div>
+<!--END OF FOOTER-->
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+<!--END OF LOG IN FOR CUSTOMER AND PRODUCER WITH THE REGISTER TEMPLATE-->
 </body>
 </html>

@@ -37,4 +37,9 @@ public class ImpProducerService implements ProducerServiceInterface {
     public void updateProducer(Producer p) {
         producerRepo.save(p);
     }
+
+    @Override
+    public Producer findByProdUsername(String username) {
+        return producerRepo.findByProdUsername(username);
+    }
 }

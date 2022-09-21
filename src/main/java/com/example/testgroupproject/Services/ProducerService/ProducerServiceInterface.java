@@ -16,4 +16,6 @@ public interface ProducerServiceInterface {
     void deleteProducer(Producer p);
 
     void updateProducer(Producer p);
+
+    Producer findByProdUsername(String name);
 }

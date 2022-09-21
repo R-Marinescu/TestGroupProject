@@ -1,6 +1,7 @@
 package com.example.testgroupproject.Controllers;
 
 import com.example.testgroupproject.Models.CustomerGuest;
+import com.example.testgroupproject.Models.Producer;
 import com.example.testgroupproject.Services.CustomerService.CustomerServiceInterface;
 import com.example.testgroupproject.Services.OrderService.OrderServiceInterface;
 import com.example.testgroupproject.Services.ProducerService.ProducerServiceInterface;
@@ -108,11 +109,15 @@ public class HomeController {
     @RequestMapping(value = "/sendToLogin", method = { RequestMethod.GET, RequestMethod.POST })
     public String redirectToLogin(Model model) {
         CustomerGuest user = new CustomerGuest();
-
+        Producer producer=new Producer();
         model.addAttribute("user", user);
-
+        model.addAttribute("producer",producer);
         return "login";
     }
 
 
 }
+
+
+
+
