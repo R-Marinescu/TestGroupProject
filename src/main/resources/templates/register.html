@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- font awsome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <!-- Bootstrap CSS
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    -->
+    <!-- FavIcon   -->
+    <link rel="stylesheet" type="text/css" th:href="@{/img/faviconHome.png}"/>
+    <!-- Style Css -->
+    <link rel="stylesheet" href="/css/register_style.css">
+    <!-- Custom Js link -->
+    <link rel="stylesheet" href="/js">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+    <title>Register</title>
+
+    <!--Bootstrap cdn-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+
+
+    <script type="text/javascript">
+        function showCustomerRegister() {
+            document.getElementById("producer").style.display = "none";
+            document.getElementById("customer").style.display = "block";
+        }
+    </script>
+    <script type="text/javascript">
+        function showProducerRegister() {
+            document.getElementById("customer").style.display = "none";
+            document.getElementById("producer").style.display = "block";
+        }
+    </script>
+</head>
+<body>
+
+<div class="containerNav" th:fragment="navigation">
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="col-12 text-right">
+                <div class="buttons text-left">
+                    <a th:href="@{sendToLogin}">Log In</a>
+                    <a th:href="@{sendToProducer}">Register</a>
+                </div>
+                <p><a href="tel:+2108374924">Call us at 210(083)</a></p>
+            </div>
+        </div>
+    </div>
+    <!-- End Top Bar -->
+
+    <!-- Navigation bar-->
+    <nav class="navbar bg-light navbar-light navbar-expand-lg">
+        <div class="container">
+
+            <a th:href="@{/}" class="navbar-brand"><img id="logo" src="/img/logo.png"
+                                                        alt="Logo" title="Logo"></a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a th:href="@{/}" class="nav-link active">Home</a></li>
+                    <li class="nav-item"><a th:href="@{sendToProductList}" class="nav-link ">Shop</a></li>
+                    <li class="nav-item"><a th:href="@{sendToIndex}" class="nav-link">Services</a></li>
+                    <!-- Navbar dropdown -->
+                    <li class="nav-item dropdown">
+                        <a href=""
+                           id="navbarDropdown"
+                           class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <!-- Dropdown menu -->
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a href="" class="dropdown-item nav-link">Action</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a href="" class="dropdown-item nav-link">AnotherAction</a></li>
+                        </ul>
+                        <!-- End of Dropdown -->
+                    </li>
+                    <!-- End of Navbar dropdown -->
+                    <li class="nav-item"><a href="" class="nav-link">Contact Us</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <!-- End of Navigation -->
+</div>
+
+<div class="container register">
+    <div class="row">
+        <div class="col-md-3 register-left">
+            <h2>Welcome</h2>
+            <p>Thank you for visiting our Website</p>
+            <a th:href="@{sendToLogin}">LogIn</a>
+        </div>
+
+        <div class="col-md-9 register-right">
+            <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="customer-tab" data-toggle="tab" href="#customer"
+                       on-click="showCustomerRegister()" role="tab" aria-controls="customer"
+                       aria-selected="true">
+                        Customer
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" id="producer-tab" data-toggle="tab" href="#producer"
+                       on-click="showProducerRegister()" role="tab" aria-controls="producer"
+                       aria-selected="false">
+                        Producer
+                    </a>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="customer" role="tabpanel" aria-labelledby="customer-tab">
+                    <h3 class="register-heading">Register as a Customer</h3>
+                    <div class="row register-form">
+                        <div class="col-md-8">
+                            <div class="reg-form">
+                                <form th:action="@{/insertCustomer}" id="customer-form" method="post"
+                                      th:object="${customer}">
+
+                                    <div class="cus-register-form">
+
+                                        <div class="m-3">
+                                            <div class="row">
+                                                <label class="col-form-label col-4">First Name</label>
+                                                <div class="col-8">
+                                                <input type="text" field="*{cusFname}"
+                                                       name="cusFname" required/>
+                                                </div>
+                                            </div>
+                                            </br>
+
+                                            <div class="row">
+                                                <label class="col-form-label col-4">Last Name</label>
+                                                <div class="col-8">
+                                                    <input type="text" field="*{cusLname}"
+                                                           name="cusLname" required/>
+                                                </div>
+                                            </div>
+                                            </br>
+
+
+                                            <div class="row">
+                                                <label class="col-form-label col-4">Email</label>
+                                                <div class="col-8">
+                                                <input type="email" class="form-field" field="*{cusEmail}"
+                                                       name="cusEmail" required/>
+                                                </div>
+                                            </div>
+                                            </br>
+
+                                            <div class="row">
+                                                <label class="col-form-label col-4">Phone Number</label>
+                                                <div class="col-8">
+                                                <input type="number" class="form-field" field="*{cusPhoneNr}"
+                                                       name="cusPhoneNr" required/>
+                                                </div>
+                                            </div>
+                                            </br>
+
+                                            <div class="row">
+                                                <label class="col-form-label col-4">Street Name</label>
+                                                <div class="col-8">
+                                                <input type="text" class="form-field" field="*{cusStreet}"
+                                                       name="cusStreet" required/>
+                                                </div>
+                                            </div>
+                                            </br>
+
+                                            <div class="row">
+                                                <label class="col-form-label col-4">Street Number</label>
+                                                <div class="col-8">
+                                                <input type="text" class="form-field" field="*{cusStreetNr}"
+                                                       name="cusStreetNr" required/>
+                                                </div>
+                                            </div>
+                                            </br>
+
+                                            <div class="row">
+                                                <label class="col-form-label col-4">Postal Code</label>
+                                                <div class="col-8">
+                                                <input type="text" class="form-field" field="*{cusPostalc}"
+                                                       name="cusPostalC" required/>
+                                                </div>
+                                            </div>
+                                            </br>
+
+                                            <div class="row">
+                                                <label class="col-form-label col-4">Username</label>
+                                                <div class="col-8">
+                                                <input type="text" class="form-field" field="*{cusUsername}"
+                                                       name="cusUsername" required minlength="4" maxlength="10"/>
+                                                </div>
+                                            </div>
+                                            </br>
+
+
+                                            <div class="row">
+                                                <label class="col-form-label col-4">Password</label>
+                                                <div class="col-8">
+                                                <input type="password" class="form-field" field="*{cusPassword}"
+                                                       name="cusPassword" required minlength="4" maxlength="10"/>
+                                                </div>
+                                            </div>
+                                            </br>
+
+
+                                            <button type="submit" class="btn btn-primary">Register</button>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade show producer" id="producer" role="tabpanel" aria-labelledby="producer-tab">
+                    <h3 class="register-heading">Register as a Producer</h3>
+                    <div class="row register-form">
+                        <div class="col-md-8">
+                            <div class="reg-form">
+                                <form th:action="@{/insertProducer}" id="producer-form" method="post"
+                                      th:object="${producer}">
+                                    <div class="row">
+                                        <label class="col-form-label col-4">First Name</label>
+                                        <div class="col-8">
+                                        <input type="text" class="form-control" field="*{prodFname}" name="prodFname">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label class="col-form-label col-4">Last Name</label>
+                                        <div class="col-8">
+                                        <input type="text" class="form-control" field="*{prodLname}" name="prodLname">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label class="col-form-label col-4">Address</label>
+                                        <div class="col-8">
+                                        <input type="text" class="form-control" field="*{prodAddress}"
+                                               name="prodAddress">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label class="col-form-label col-4">Area</label>
+                                        <div class="col-8">
+                                        <input type="text" class="form-control" field="*{prodArea}" name="prodArea">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label class="col-form-label col-4">Email</label>
+                                        <div class="col-8">
+                                        <input type="email" class="form-control" field="*{prodEmail}" name="prodEmail">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label class="col-form-label col-4">IBAN</label>
+                                        <div class="col-8">
+                                        <input type="text" class="form-control" field="*{prodIban}" name="prodIban">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label class="col-form-label col-4">Business Title</label>
+                                        <div class="col-8">
+                                        <input type="text" class="form-control" field="*{prodBusTitle}"
+                                               name="prodBusTitle">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label class="col-form-label col-4">Username</label>
+                                        <div class="col-8">
+                                        <input type="text" class="form-control" field="*{prodUsername}"
+                                               name="prodUsername">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label class="col-form-label col-4">Password</label>
+                                        <div class="col-8">
+                                        <input type="password" class="form-control" field="*{prodPassword}"
+                                               name="prodPassword">
+                                        </div>
+                                    </div>
+                                    <input type="submit" class="btn-register" value=Register>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="containerFooter" th:fragment="footer">
+    <!-- Start Footer -->
+    <footer>
+        <div class="container">
+            <div class="row text-light text-center py-4 justify-content-center">
+
+                <div class="col-sm-10 col-md-8 col-lg-6">
+                    <a th:href="@{/}" class="navbar-brand"><img id="logoimg" src="/img/logo.png"
+                                                                alt="Logo" title="Logo"></a>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe deleniti, aspernatur
+                        consequatur earum distinctio fugit numquam rem explicabo illo excepturi repellat.
+                    </p>
+                    <ul class="social pt-3">
+                        <li><a href="#" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <!-- End Of Footer -->
+
+    <!-- Start Socket -->
+    <div class="socket text-light text-center py-3">
+        <p>&copy; <a th:href="@{/#}">RM</a></p>
+    </div>
+    <!-- End Socket -->
+
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
