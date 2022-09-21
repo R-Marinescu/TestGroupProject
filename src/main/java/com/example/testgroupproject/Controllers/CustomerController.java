@@ -17,23 +17,23 @@ public class CustomerController {
 
     //
     @PostMapping("/insertCustomer")
-    public String insertCustomer(@RequestParam("cusName") String cusName,
-                                 @RequestParam("cusLName") String cusLName,
+    public String insertCustomer(@RequestParam("cusFname") String cusFname,
+                                 @RequestParam("cusLname") String cusLname,
                                  @RequestParam("cusEmail") String cusEmail,
-                                 @RequestParam("cusPhone") Integer cusPhone,
-                                 @RequestParam("cusPC") Integer cusPC,
+                                 @RequestParam("cusPhoneNr") Integer cusPhoneNr,
+                                 @RequestParam("cusPostalC") String cusPostalC,
                                  @RequestParam("cusStreet") String cusStreet,
-                                 @RequestParam("cusStreetNr") Integer cusStreetNr,
+                                 @RequestParam("cusStreetNr") String cusStreetNr,
                                  @RequestParam("cusUsername") String cusUsername,
                                  @RequestParam("cusPassword") String cusPassword,
                                  ModelMap mm){
 
         //Invokes constructor and creates new obj, then calls Interface from Services and implements the method insertCustomer from impCustomerService
-        CustomerGuest customer = new CustomerGuest(cusName, cusLName, cusEmail, cusPhone, cusPC, cusStreet, cusStreetNr, cusUsername, cusPassword);
+        CustomerGuest customer = new CustomerGuest(cusFname, cusLname, cusEmail, cusPhoneNr, cusPostalC, cusStreet, cusStreetNr, cusUsername, cusPassword);
         customerService.insertCustomer(customer);
         //Stores the value of the method getAllCustomers into "customers" and send it to the html page assigned to 'return'.
-        mm.addAttribute("customers", customerService.getAllCustomers());
-        return "Customer/CustomerList";
+        mm.addAttribute("customer", customerService.getAllCustomers());
+        return "register-success";
     }
 
     @GetMapping("/editCustomer/{id}")

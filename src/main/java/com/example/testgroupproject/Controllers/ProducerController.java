@@ -27,16 +27,16 @@ public class ProducerController {
                                  @RequestParam("prodEmail") String prodEmail,
                                  @RequestParam("prodIban") String prodIban,
                                  @RequestParam("prodBusTitle") String prodBusTitle,
-                                 @RequestParam("ProdUsername") String prodUsername,
-                                 @RequestParam("ProdPassword") String prodPassword,
+                                 @RequestParam("prodUsername") String prodUsername,
+                                 @RequestParam("prodPassword") String prodPassword,
                                  ModelMap mm){
         //Invokes constructor and creates new obj, then calls Interface from Services and implements the method insertProducer from impProducerService
         Producer producer = new Producer(prodFname, prodLname, prodAddress, prodArea, prodEmail, prodIban, prodBusTitle, prodUsername, prodPassword);
         producerService.insertProducer(producer);
 
         //Stores the value of the method getAllProducers into "producers" and send it to the html page assigned to 'return'.
-        mm.addAttribute("producers", producerService.getAllProducers());
-        return "Producer/ProducerList";
+        mm.addAttribute("producer", producerService.getAllProducers());
+        return "register-success";
     }
 
     @PostMapping("/addProducer")

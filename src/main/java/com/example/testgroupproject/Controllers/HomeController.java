@@ -67,7 +67,7 @@ public class HomeController {
     @RequestMapping(value = "/sendToProducer", method = { RequestMethod.GET, RequestMethod.POST })
     public String redirectToProducer(){
 
-        return ("Producer/ProducerForm");
+        return ("register");
     }
 
 

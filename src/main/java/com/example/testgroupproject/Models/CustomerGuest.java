@@ -21,30 +21,30 @@ public class CustomerGuest {
     private String cusEmail;
 
     @Column(name = "cus_phoneNr")
-    private Integer cusPhonenr;
+    private Integer cusPhoneNr;
 
     @Column(name = "cus_PostalC")
-    private Integer cusPostalc;
+    private String cusPostalC;
 
     @Column(name = "cus_Street", length = 45)
     private String cusStreet;
 
     @Column(name = "cus_StreetNr")
-    private Integer cusStreetnr;
+    private String cusStreetNr;
 
     @Column(name = "cus_username", length = 45)
     private String cusUsername;
 
     @Column(name = "cus_password", length = 45)
     private String cusPassword;
-    public CustomerGuest(String cusFname, String cusLname, String cusEmail, Integer cusPhonenr, Integer cusPostalc, String cusStreet, Integer cusStreetnr, String cusUsername, String cusPassword) {
+    public CustomerGuest(String cusFname, String cusLname, String cusEmail, Integer cusPhoneNr, String cusPostalC, String cusStreet, String cusStreetNr, String cusUsername, String cusPassword) {
         this.cusFname = cusFname;
         this.cusLname = cusLname;
         this.cusEmail = cusEmail;
-        this.cusPhonenr = cusPhonenr;
-        this.cusPostalc = cusPostalc;
+        this.cusPhoneNr = cusPhoneNr;
+        this.cusPostalC = cusPostalC;
         this.cusStreet = cusStreet;
-        this.cusStreetnr = cusStreetnr;
+        this.cusStreetNr = cusStreetNr;
         this.cusUsername = cusUsername;
         this.cusPassword = cusPassword;
 
@@ -91,20 +91,20 @@ public class CustomerGuest {
         this.cusEmail = cusEmail;
     }
 
-    public Integer getCusPhonenr() {
-        return cusPhonenr;
+    public Integer getCusPhoneNr() {
+        return cusPhoneNr;
     }
 
-    public void setCusPhonenr(Integer cusPhonenr) {
-        this.cusPhonenr = cusPhonenr;
+    public void setCusPhoneNr(Integer cusPhonenr) {
+        this.cusPhoneNr = cusPhonenr;
     }
 
-    public Integer getCusPostalc() {
-        return cusPostalc;
+    public String getCusPostalc() {
+        return cusPostalC;
     }
 
-    public void setCusPostalc(Integer cusPostalc) {
-        this.cusPostalc = cusPostalc;
+    public void setCusPostalc(String cusPostalc) {
+        this.cusPostalC = cusPostalc;
     }
 
     public String getCusStreet() {
@@ -115,12 +115,12 @@ public class CustomerGuest {
         this.cusStreet = cusStreet;
     }
 
-    public Integer getCusStreetnr() {
-        return cusStreetnr;
+    public String getCusStreetnr() {
+        return cusStreetNr;
     }
 
-    public void setCusStreetnr(Integer cusStreetnr) {
-        this.cusStreetnr = cusStreetnr;
+    public void setCusStreetnr(String cusStreetnr) {
+        this.cusStreetNr = cusStreetnr;
     }
 
     public String getCusUsername() {
