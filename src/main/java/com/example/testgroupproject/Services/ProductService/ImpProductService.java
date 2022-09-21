@@ -40,4 +40,9 @@ public class ImpProductService implements ProdServiceInterface {
     public void deleteProduct(Product p) {
         productRepo.delete(p);
     }
+
+//    @Override
+//    public List<Product> findProductByFkCounty_Id(String pName, String prodInfo, Double price) {
+//        return productRepo.findProductByFkCounty_Id(pName, prodInfo, price);
+//    }
 }

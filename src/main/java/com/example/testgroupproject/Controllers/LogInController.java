@@ -2,15 +2,11 @@ package com.example.testgroupproject.Controllers;
 
 import com.example.testgroupproject.Models.CustomerGuest;
 import com.example.testgroupproject.Models.Producer;
-import com.example.testgroupproject.Repositories.CustomerRepo;
-import com.example.testgroupproject.Repositories.ProducerRepo;
 import com.example.testgroupproject.Services.CustomerService.CustomerServiceInterface;
 import com.example.testgroupproject.Services.ProducerService.ProducerServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 

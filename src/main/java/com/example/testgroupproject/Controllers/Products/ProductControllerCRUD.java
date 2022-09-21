@@ -1,4 +1,4 @@
-package com.example.testgroupproject.Controllers;
+package com.example.testgroupproject.Controllers.Products;
 
 import com.example.testgroupproject.Models.Product;
 import com.example.testgroupproject.Services.ProductService.ProdServiceInterface;
@@ -9,7 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-public class ProductController {
+public class ProductControllerCRUD {
 
     //Injecting Interface methods from Service via ImpProductService (@Autowired)
     @Autowired

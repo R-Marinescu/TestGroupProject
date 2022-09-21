@@ -2,8 +2,6 @@ package com.example.testgroupproject.Services.CustomerService;
 
 
 import com.example.testgroupproject.Models.CustomerGuest;
-import com.example.testgroupproject.Models.Product;
-import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 

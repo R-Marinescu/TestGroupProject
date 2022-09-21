@@ -2,7 +2,6 @@ package com.example.testgroupproject.Services.OrderService;
 
 import com.example.testgroupproject.Models.Order;
 import com.example.testgroupproject.Repositories.OrderRepo;
-import com.example.testgroupproject.Services.OrderService.OrderServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

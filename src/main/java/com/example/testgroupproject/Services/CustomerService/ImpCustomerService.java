@@ -2,9 +2,7 @@ package com.example.testgroupproject.Services.CustomerService;
 
 import com.example.testgroupproject.Models.CustomerGuest;
 import com.example.testgroupproject.Repositories.CustomerRepo;
-import com.example.testgroupproject.Services.CustomerService.CustomerServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

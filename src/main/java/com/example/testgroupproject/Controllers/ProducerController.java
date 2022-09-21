@@ -1,6 +1,5 @@
 package com.example.testgroupproject.Controllers;
 
-import com.example.testgroupproject.Models.CustomerGuest;
 import com.example.testgroupproject.Models.Producer;
 import com.example.testgroupproject.Repositories.ProducerRepo;
 import com.example.testgroupproject.Services.ProducerService.ProducerServiceInterface;
