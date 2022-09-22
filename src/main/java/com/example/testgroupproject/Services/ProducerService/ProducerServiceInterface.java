@@ -1,7 +1,6 @@
 package com.example.testgroupproject.Services.ProducerService;
 
 import com.example.testgroupproject.Models.Producer;
-import com.example.testgroupproject.Models.Product;
 
 import java.util.List;
 

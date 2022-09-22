@@ -20,11 +20,26 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
-<div th:replace="~{Fragments/Navbar :: navigation}"></div>
-<main>
-    <h1>Works</h1>
-</main>
-<div th:replace="~{Fragments/Footer :: footer}"></div>
-</body>
+    <body>
+        <div th:replace="~{Fragments/Navbar :: navigation}"></div>
+        <main>
+            <table border="1">
+                <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Product Price</th>
+                    <th>Product Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each = "product: ${products}">
+                    <td th:text="${product.getProductName()}"/>
+                    <td th:text="${product.getProductPrice()}"/>
+                    <td th:text="${product.getProductInfo()}"/>
+                </tr>
+                </tbody>
+            </table>
+        </main>
+    <div th:replace="~{Fragments/Footer :: footer}"></div>
+    </body>
 </html>

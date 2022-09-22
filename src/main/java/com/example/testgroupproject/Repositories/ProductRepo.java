@@ -2,7 +2,6 @@ package com.example.testgroupproject.Repositories;
 
 
 import com.example.testgroupproject.Models.Product;
-import org.hibernate.sql.Select;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
