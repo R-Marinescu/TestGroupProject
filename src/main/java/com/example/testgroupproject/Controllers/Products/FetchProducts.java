@@ -18,20 +18,9 @@ public class FetchProducts {
         @RequestMapping(value = "/SendToAchaeaProducts", method = { RequestMethod.GET, RequestMethod.POST })
         public String redirectAchaeaProducts(ModelMap mm){
 
-        mm.addAttribute("products", prodService.getAllProducts());
+        mm.addAttribute("products", prodService.getProductsByCounty(3));
         return"/Product/ByCountyAndType/AchaeaProducts";
     }
-
-//    @PostMapping("/showAchaeaProducts")
-//    public String showAchaeaProducts(@RequestParam("productName") String productName,
-//                                     @RequestParam("productPrice") Double productPrice,
-//                                     @RequestParam("productInfo") String productInfo, ModelMap mm){
-//
-//        Product product = new Product(productName, productPrice, productInfo);
-//        mm.addAttribute("products", prodService.getAllProducts());
-//        return"/Product/ByCountyAndType/AchaeaProducts";
-//    }
-
 
 
     @GetMapping("/showAitolokarnaniaProducts")

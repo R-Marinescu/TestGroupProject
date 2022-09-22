@@ -19,6 +19,8 @@ public interface ProdServiceInterface {
     void updateProduct(Product p);
     //----------- End of Product Crud
 
+    List<Product> getProductsByCounty(Integer countyId);
+
   //  List<Product> findProductByFkCounty_Id(String pName, String prodInfo, Double price);
 
 }

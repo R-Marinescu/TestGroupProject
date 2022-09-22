@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpSession;
 import java.util.Optional;
 
 
@@ -22,7 +23,7 @@ public class LogInController {
     ProducerServiceInterface producerService;
 
     @PostMapping("/loginUser")
-    public String loginUser(@ModelAttribute("user") CustomerGuest user, Model m){
+    public String loginUser(@ModelAttribute("user") CustomerGuest user, Model m, HttpSession session){
 
         Integer userId = user.getId();
         Optional<CustomerGuest> userData = Optional.ofNullable(customerService.findByCusUsername(user.getCusUsername()));
@@ -30,6 +31,7 @@ public class LogInController {
 
 
         if(!userData.isEmpty() && user.getCusPassword().equals(userData.get().getCusPassword())) {
+            session.setAttribute("loggedInUser", userData.get());
             return "home";
         }else{
             return "login";

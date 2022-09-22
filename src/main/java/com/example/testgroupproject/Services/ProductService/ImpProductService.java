@@ -37,6 +37,11 @@ public class ImpProductService implements ProdServiceInterface {
     }
 
     @Override
+    public List<Product> getProductsByCounty(Integer countyId) {
+        return productRepo.findProductByCounty_Id(countyId);
+    }
+
+    @Override
     public void deleteProduct(Product p) {
         productRepo.delete(p);
     }
