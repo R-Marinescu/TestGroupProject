@@ -115,6 +115,12 @@ public class HomeController {
         return "login";
     }
 
+    @RequestMapping(value = "/sendToCart", method = { RequestMethod.GET, RequestMethod.POST })
+    public String redirectToCart() {
+
+        return "Home/ShoppingCart";
+    }
+
 
 }
 
