@@ -29,6 +29,8 @@
                     <th>Product Name</th>
                     <th>Product Price</th>
                     <th>Product Description</th>
+                    <th>Product Image</th>
+                    <th>Basket</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -36,6 +38,8 @@
                     <td th:text="${product.getProductName()}"/>
                     <td th:text="${product.getProductPrice()}"/>
                     <td th:text="${product.getProductInfo()}"/>
+                    <td ><img th:src="'/img/HomeImage/Featured/'+${product.getId()}+'.jpeg'" alt=""></td>
+                    <td><a href=""></a></td>
                 </tr>
                 </tbody>
             </table>
