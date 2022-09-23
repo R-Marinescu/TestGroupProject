@@ -1,5 +1,7 @@
 package com.example.testgroupproject.Controllers.Products;
 
+import com.example.testgroupproject.Models.County;
+import com.example.testgroupproject.Repositories.CountyRepo;
 import com.example.testgroupproject.Services.ProductService.ProdServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,15 +14,20 @@ public class FetchProducts {
     @Autowired
     ProdServiceInterface prodService;
 
+    @Autowired
+    CountyRepo countyRepo;
+
+
+
 
 //    ----- Controllers that show products by county -------
-
     @GetMapping("/showAtticaProducts")
     public String showAtticaProducts(ModelMap mm){
 
         mm.addAttribute("products", prodService.getProductsByCounty(1));
         return"/Product/ByCountyAndType/AtticaProducts";
     }
+
 
     @GetMapping("/showThesalonikiProducts")
     public String showThesalonikiProducts(ModelMap mm){
