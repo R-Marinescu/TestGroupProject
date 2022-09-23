@@ -38,6 +38,10 @@ body {
 .nav-link:hover {
     color: #4981b3!important;
 }
+
+.nav-item input{
+    border-radius: 25px;
+}
 /*===========END OF NAVIGATION=========*/
 
 /*==============REGISTER FORMS=======================*/
