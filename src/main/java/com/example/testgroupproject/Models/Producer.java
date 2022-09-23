@@ -1,14 +1,12 @@
 package com.example.testgroupproject.Models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "producer")
 public class Producer {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "prod_ID", nullable = false)
     private Integer id;
 
@@ -40,6 +38,15 @@ public class Producer {
     private String prodPassword;
 
     public Producer(String prodFname, String prodLname, String prodAddress, String prodArea, String prodEmail, String prodIban, String prodBusTitle, String prodUsername, String prodPassword) {
+        this.prodFname = prodFname;
+        this.prodLname = prodLname;
+        this.prodAddress = prodAddress;
+        this.prodArea = prodArea;
+        this.prodEmail = prodEmail;
+        this.prodIban = prodIban;
+        this.prodBusTitle = prodBusTitle;
+        this.prodUsername = prodUsername;
+        this.prodPassword = prodPassword;
     }
 
     public Producer() {
