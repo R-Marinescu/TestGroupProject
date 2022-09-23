@@ -27,12 +27,11 @@
         <div class="top-bar">
             <div class="container">
                 <div class="col-12 text-right">
-                    <div class="buttons text-left">
-                        <a th:href="@{sendToCustomer}">Register Customer</a>
+                    <div class="buttons text-right">
                         <a th:href="@{sendToLogin}">Log In</a>
-                        <a th:href="@{sendToProducer}">Register Producer</a>
+                        <a th:href="@{sendToProducer}">Register</a>
                     </div>
-                    <p><a href="tel:+2108374924">Call us at 210(083)</a></p>
+<!--                    <p><a href="tel:+2108374924">Call us at 210(083)</a></p>-->
                 </div>
             </div>
         </div>
@@ -72,27 +71,12 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a th:href="@{/}" class="nav-link active">Home</a></li>
-                        <li class="nav-item"><a th:href="@{sendToProductList}" class="nav-link ">Shop</a></li>
-                        <li class="nav-item"><a th:href="@{sendToIndex}" class="nav-link">Services</a></li>
-                        <!-- Navbar dropdown -->
-                        <li class="nav-item dropdown">
-                            <a href=""
-                               id="navbarDropdown"
-                               class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <!-- Dropdown menu -->
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a href="" class="dropdown-item nav-link">Action</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a href="" class="dropdown-item nav-link">AnotherAction</a></li>
-                            </ul>
-                            <!-- End of Dropdown -->
-                        </li>
-                        <!-- End of Navbar dropdown -->
-                        <li class="nav-item"><a href="" class="nav-link">Contact Us</a></li>
+                        <li class="nav-item"><a th:href="@{sendToProductList}" class="nav-link ">Products</a></li>
+                        <li class="nav-item"><a th:href="@{sendToShopByCounty}" class="nav-link">Shop By County</a></li>
+                        <li class="nav-item"><a th:href="@{sendToCart}" class="nav-link">Contact Us</a></li>
+                        <li class="nav-item"><input type="text" placeholder="Search...." href="products"/></li>
+                        <li class="nav-item"><i class="fa fa-search" aria-hidden="true"></i></li>
                     </ul>
-
                 </div>
             </div>
         </nav>
