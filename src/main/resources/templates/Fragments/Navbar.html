@@ -22,63 +22,7 @@
 </head>
     <body>
         <div class="containerNav" th:fragment="navigation">
-<!--            &lt;!&ndash; Top Bar &ndash;&gt;-->
-<!--            <div class="top-bar">-->
-<!--                <div class="container">-->
-<!--                    <div class="col-12 text-right">-->
-<!--                        <div class="buttons text-right">-->
-<!--                            <a th:href="@{sendToLogin}">Log In</a>-->
-<!--                            <a th:href="@{sendToProducer}">Register</a>-->
-<!--                        </div>-->
-<!--                        &lt;!&ndash;   <p id="banner-info"><a href="tel:+2108374924">Call us at 210(083)</a></p> &ndash;&gt;-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            &lt;!&ndash; End Top Bar &ndash;&gt;-->
 
-<!--            &lt;!&ndash; Navigation bar&ndash;&gt;-->
-<!--            <nav class="navbar bg-light navbar-light navbar-expand-lg">-->
-<!--                <div class="container">-->
-
-<!--                    <a th:href="@{/}" class="navbar-brand"><img id="logo" src="/img/logo.png"-->
-<!--                                                                alt="Logo" title="Logo"></a>-->
-
-<!--                    <button class="navbar-toggler" type="button" data-toggle="collapse"-->
-<!--                            data-target="#navbarResponsive">-->
-<!--                        <span class="navbar-toggler-icon"></span>-->
-<!--                    </button>-->
-
-<!--                    <div class="collapse navbar-collapse" id="navbarResponsive">-->
-<!--                        <ul class="navbar-nav ml-auto">-->
-<!--                            <li class="nav-item"><a th:href="@{/}" class="nav-link active">Home</a></li>-->
-<!--                            <li class="nav-item"><a th:href="@{sendToProductList}" class="nav-link ">Products</a></li>-->
-<!--                            <li class="nav-item"><a th:href="@{sendToShopByCounty}" class="nav-link">Shop By County</a></li>-->
-<!--                            &lt;!&ndash; Navbar dropdown   NOT SURE IF NEEDED&ndash;&gt;-->
-<!--                            &lt;!&ndash;       <li class="nav-item dropdown">-->
-<!--                                     <a href=""-->
-<!--                                        id="navbarDropdown"-->
-<!--                                        class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false">-->
-<!--                                       Dropdown-->
-<!--                                     </a>-->
-<!--                           &ndash;&gt;          &lt;!&ndash; Dropdown menu &ndash;&gt;-->
-<!--                            &lt;!&ndash;         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">-->
-<!--                                      <li><a href="" class="dropdown-item nav-link">Action</a></li>-->
-<!--                                      <li><hr class="dropdown-divider"></li>-->
-<!--                                      <li><a href="" class="dropdown-item nav-link">AnotherAction</a></li>-->
-<!--                                    </ul>-->
-<!--                    &ndash;&gt;                &lt;!&ndash; End of Dropdown &ndash;&gt;-->
-<!--                            &lt;!&ndash;        </li>                &ndash;&gt;-->
-<!--                            &lt;!&ndash; End of Navbar dropdown &ndash;&gt;-->
-<!--                            <li class="nav-item"><a href="" class="nav-link">Contact Us</a></li>-->
-<!--                            <li class="nav-item"><input type="text" placeholder="Search...." href="products"/></li>-->
-<!--                            <li class="nav-item"><i class="fa fa-search" aria-hidden="true"></i></li>-->
-
-<!--                        </ul>-->
-
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </nav>-->
-            <!-- End of Navigation -->
 
             <!-- Top Bar -->
             <div class="top-bar">
@@ -128,9 +72,9 @@
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item"><a th:href="@{/}" class="nav-link active">Home</a></li>
-                            <li class="nav-item"><a th:href="@{sendToProductList}" class="nav-link ">Products</a></li>
-                            <li class="nav-item"><a th:href="@{sendToShopByCounty}" class="nav-link">Shop By County</a></li>
-                            <li class="nav-item"><a th:href="@{sendToCart}" class="nav-link">Contact Us</a></li>
+                            <li class="nav-item"><a th:href="@{/sendToProductList}" class="nav-link ">Products</a></li>
+                            <li class="nav-item"><a th:href="@{/sendToShopByCounty}" class="nav-link">Shop By County</a></li>
+                            <li class="nav-item"><a th:href="@{#}" class="nav-link">Contact Us</a></li>
                             <li class="nav-item"><input type="text" placeholder="Search...." href="products"/></li>
                             <li class="nav-item"><i class="fa fa-search" aria-hidden="true"></i></li>
                         </ul>

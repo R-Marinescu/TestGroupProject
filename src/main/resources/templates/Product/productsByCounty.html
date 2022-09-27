@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org" >
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" >
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -17,8 +17,6 @@
     <link rel="stylesheet" th:href="@{/css/style.css}">
     <link rel="stylesheet" th:href="@{/css/Counties.css}">
     <link rel="stylesheet" th:href="@{/css/shoppingCart.css}">
-    <!-- Custom Js link -->
-    <link rel="stylesheet" href="/js">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,42 +36,48 @@
             <!-- Start Counties  -->
 
             <div class="container-counties">
+
                 <div class="container-counties-inner">
-                    <div class="county" data-name="p1">
-                        <a th:href="@{/SendToAchaeaProducts}"><img src="/img/counties/Achaea.PNG" alt="">
-                        <h3>Achaea</h3>
-                        </a>
-                    </div>
+                    <th:block th:each="county:${counties}">
 
-                    <div class="county" data-name="p2">
-                        <a th:href="@{/showAitolokarnaniaProducts}"><img src="/img/counties/Aitolokarnania.PNG" alt="">
-                            <h3>Aitolokarnania</h3>
-                        </a>
-                    </div>
+                        <div class="county" data-name="p1">
+                            <a  th:href="@{/showCountyProducts/{id}(id=${county.id})}"><img th:src="'/img/counties/'+${county.getId()}+'.PNG'">
+                                <h3 th:text="${county.getCountyName()}"></h3>
+                            </a>
+                        </div>
 
-                    <div class="county" data-name="p3">
-                        <a th:href="@{/showAtticaProducts}"><img src="/img/counties/Attica.PNG" alt="">
-                            <h3>Attica</h3>
-                        </a>
-                    </div>
+<!--                        <div class="county" data-name="p2">-->
+<!--                            <a th:href="@{/showCountyProducts/{id}(id=${county.id})}"><img src="/img/counties/2.PNG" alt="">-->
+<!--                                <h3>Thesaloniki</h3>-->
+<!--                            </a>-->
+<!--                        </div>-->
 
-                    <div class="county" data-name="p4">
-                        <a th:href="@{/showKarditsaProducts}"><img src="/img/counties/karditsa.PNG" alt="">
-                            <h3>Karditsa</h3>
-                        </a>
-                    </div>
+<!--                        <div class="county" data-name="p2">-->
+<!--                            <a th:href="@{/showCountyProducts/{id}/{id}(id=${county.id})}"><img src="/img/counties/3.PNG" alt="">-->
+<!--                                <h3>Achaea</h3>-->
+<!--                            </a>-->
+<!--                        </div>-->
 
-                    <div class="county" data-name="p5">
-                        <a th:href="@{/showThesaliaProducts}"><img src="/img/counties/Thesalia.PNG" alt="">
-                            <h3>Thesalia</h3>
-                        </a>
-                    </div>
 
-                    <div class="county" data-name="p5">
-                        <a th:href="@{/showThesalonikiProducts}"><img src="/img/counties/Thesaloniki.PNG" alt="">
-                            <h3>Thesaloniki</h3>
-                        </a>
-                    </div>
+
+<!--                        <div class="county" data-name="p4">-->
+<!--                            <a th:href="@{/showCountyProducts/{id}/{id}(id=${county.id})}"><img src="/img/counties/4.PNG" alt="">-->
+<!--                                <h3>Aitolokarnania</h3>-->
+<!--                            </a>-->
+<!--                        </div>-->
+
+<!--                        <div class="county" data-name="p5">-->
+<!--                            <a th:href="@{/showCountyProducts/{id}/{id}(id=${county.id})}"><img src="/img/counties/5.PNG" alt="">-->
+<!--                                <h3>Karditsa</h3>-->
+<!--                            </a>-->
+<!--                        </div>-->
+
+<!--                        <div class="county" data-name="p5">-->
+<!--                            <a th:href="@{/showThesalonikiProducts}"><img src="/img/counties/6.PNG" alt="">-->
+<!--                                <h3>Thesalia</h3>-->
+<!--                            </a>-->
+<!--                        </div>-->
+                    </th:block>
 
                 </div>
             </div>

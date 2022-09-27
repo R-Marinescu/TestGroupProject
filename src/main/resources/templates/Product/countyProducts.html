@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <!-- font awsome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Shopping Cart</title>
+    <!-- Box Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- FavIcon   -->
+    <link rel="stylesheet" type="text/css" th:href="@{/img/faviconHome.png}"/>
+    <!-- Style Css -->
+    <link rel="stylesheet" th:href="@{/css/shoppingCart.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+    <body>
+    <div th:replace="~{Fragments/Navbar :: navigation}"></div>
+        <!-- -------------------------------------------------- -->
+        <!-- Shop -->
+        <section class="shop container">
+            <h2 class="section-title">Shop Products</h2>
+            <!-- Content -->
+            <div class="shop-content">
+                <th:block th:each = "product: ${products}">
+
+                    <div class="product-box">
+                        <img th:src="'/img/HomeImage/Products/'+${product.getId()}+'.jpg'" alt="" class="product-img">
+                        <h2 class="product-title" th:text="${product.getProductName()}"></h2>
+                        <span class="price" th:text="${product.getProductPrice()}"></span>
+                        <i class='bx bx-shopping-bag add-cart'></i>
+                    </div>
+                </th:block>
+
+            </div>
+        </section>
+
+        <div th:replace="~{Fragments/Footer :: footer}"></div>
+        <!-- Link to JS -->
+        <script th:src="@{/js/shoppingCart.js}"></script>
+    </body>
+</html>

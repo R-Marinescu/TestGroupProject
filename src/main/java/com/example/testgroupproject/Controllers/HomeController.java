@@ -2,6 +2,7 @@ package com.example.testgroupproject.Controllers;
 
 import com.example.testgroupproject.Models.CustomerGuest;
 import com.example.testgroupproject.Models.Producer;
+import com.example.testgroupproject.Services.CountyService.CountyServiceInterface;
 import com.example.testgroupproject.Services.CustomerService.CustomerServiceInterface;
 import com.example.testgroupproject.Services.OrderService.OrderServiceInterface;
 import com.example.testgroupproject.Services.ProducerService.ProducerServiceInterface;
@@ -27,6 +28,11 @@ public class HomeController {
     @Autowired
     ProducerServiceInterface producerService;
 
+    @Autowired
+    CountyServiceInterface countyService;
+
+
+
     @GetMapping("/")
     public String showHome() {
 
@@ -39,10 +45,7 @@ public class HomeController {
         return("/home");
     }
 
-    @RequestMapping(value = "/sendToShopByCounty", method = { RequestMethod.GET, RequestMethod.POST })
-    public String redirectToShopByCounty() {
-        return("/Product/productsByCounty");
-    }
+
 
     @RequestMapping(value = "/sendToProduct", method = { RequestMethod.GET, RequestMethod.POST })
     public String redirectToProduct() {
@@ -118,7 +121,7 @@ public class HomeController {
     @RequestMapping(value = "/sendToCart", method = { RequestMethod.GET, RequestMethod.POST })
     public String redirectToCart() {
 
-        return "Home/ShoppingCart";
+        return "countyProducts";
     }
 
 

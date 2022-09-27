@@ -20,7 +20,7 @@ public class CustomerGuest {
     private String cusEmail;
 
     @Column(name = "cus_phoneNr")
-    private Integer cusPhonenr;
+    private String cusPhonenr;
 
     @Column(name = "cus_PostalC", length = 10)
     private String cusPostalc;
@@ -37,7 +37,7 @@ public class CustomerGuest {
     @Column(name = "cus_password", length = 64)
     private String cusPassword;
 
-    public CustomerGuest(String cusFname, String cusLname, String cusEmail, Integer cusPhonenr, String cusPostalc, String cusStreet, String cusStreetnr, String cusUsername, String cusPassword) {
+    public CustomerGuest(String cusFname, String cusLname, String cusEmail, String cusPhonenr, String cusPostalc, String cusStreet, String cusStreetnr, String cusUsername, String cusPassword) {
         this.cusFname = cusFname;
         this.cusLname = cusLname;
         this.cusEmail = cusEmail;
@@ -85,11 +85,11 @@ public class CustomerGuest {
         this.cusEmail = cusEmail;
     }
 
-    public Integer getCusPhonenr() {
+    public String getCusPhonenr() {
         return cusPhonenr;
     }
 
-    public void setCusPhonenr(Integer cusPhonenr) {
+    public void setCusPhonenr(String cusPhonenr) {
         this.cusPhonenr = cusPhonenr;
     }
 

@@ -20,7 +20,7 @@ public class CustomerController {
     public String insertCustomer(@RequestParam("cusFname") String cusFname,
                                  @RequestParam("cusLname") String cusLname,
                                  @RequestParam("cusEmail") String cusEmail,
-                                 @RequestParam("cusPhoneNr") Integer cusPhoneNr,
+                                 @RequestParam("cusPhoneNr") String cusPhoneNr,
                                  @RequestParam("cusPostalC") String cusPostalC,
                                  @RequestParam("cusStreet") String cusStreet,
                                  @RequestParam("cusStreetNr") String cusStreetNr,
