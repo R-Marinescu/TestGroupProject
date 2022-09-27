@@ -34,7 +34,7 @@
               <th>Product Name</th>
               <th>Product Price</th>
               <th>Product Description</th>
-              <th>Discount</th>
+              <th>Product Image</th>
           </tr>
           </thead>
           <tbody>
@@ -42,17 +42,13 @@
               <td th:text="${product.getProductName()}"/>
               <td th:text="${product.getProductPrice()}"/>
               <td th:text="${product.getProductInfo()}"/>
-              <td th:text="${product.getPossibleDiscount()}"/>
+              <td><img th:src="'/img/HomeImage/Products/'+${product.getId()}+'.jpg'" width="80" height="200" alt=""></td>
               <td><a th:href="@{/editProduct/{id}(id=${product.id})}">Update</a></td>
               <td><a th:href="@{/deleteProduct/{id}(id=${product.id})}">Delete</a></td>
           </tr>
           </tbody>
       </table>
-      <br>
-          <form action="/" method="post">
-                <button type="submit" >Home</button>
-          </form>
-      <br>
+
     </div>
     <div th:replace="~{Fragments/Footer :: footer}"></div>
     <script th:src="@{/js/shoppingCart.js}"></script>
