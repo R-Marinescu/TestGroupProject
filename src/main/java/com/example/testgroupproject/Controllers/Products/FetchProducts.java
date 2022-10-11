@@ -17,21 +17,18 @@ public class FetchProducts {
     CountyServiceInterface countyService;
 
 
+//    ----- Products Controllers -------
 
 
-//    ----- Controllers that show products by county -------
-
-
+//    Shows Shop By County fetches all counties
     @RequestMapping(value = "/sendToShopByCounty", method = { RequestMethod.GET, RequestMethod.POST })
     public String redirectToShopByCounty(ModelMap mm) {
-
 
         mm.addAttribute("counties", countyService.getAllCounties());
         return("/Product/productsByCounty");
     }
 
-
-
+//Shows products by county
     @GetMapping("/showCountyProducts/{id}")
     public String showProducts(@PathVariable("id") Integer id, ModelMap mm){
 
@@ -39,6 +36,14 @@ public class FetchProducts {
         return "/Product/countyProducts";
     }
 
+//    Show ALL products
+    @RequestMapping(value = "/sendToProductList", method = { RequestMethod.GET, RequestMethod.POST })
+    public String redirectToProductList(ModelMap mm){
+
+
+        mm.addAttribute("products", prodService.getAllProducts());
+        return ("Product/ProductList");
+    }
 
 
     //  ----- End Of Controllers that show products by county -------

@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Box Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Home</title>
     <!-- FavIcon   -->
     <link rel="stylesheet" type="text/css" th:href="@{/img/faviconHome.png}"/>
@@ -27,12 +29,12 @@
             <!-- Top Bar -->
             <div class="top-bar">
                 <div class="container">
-                    <div class="col-12 text-right">
-                        <div class="buttons text-right">
+                    <div class="col-lg-8">
+                        <div class="buttons d-flex justify-content-around" >
                             <a th:href="@{sendToLogin}">Log In</a>
-                            <a th:href="@{sendToProducer}">Register</a>
+                            <a th:href="@{sendToRegister}">Register</a>
+                            <p th:text="'Hello, ' + ${#session.getAttribute('loggedInUser')}"></p>
                         </div>
-<!--                        <p><a href="tel:+2108374924">Call us at 210(083)</a></p>-->
                     </div>
                 </div>
             </div>
@@ -41,34 +43,12 @@
             <!-- Navigation bar-->
             <nav class="navbar bg-light navbar-light navbar-expand-lg">
                 <div class="container">
-                    <!-- Test -->
-                    <!-- Car-Icon -->
-                    <i class='bx bx-shopping-bag' id="cart-icon"></i>
-                    <!-- Cart -->
-                    <div class="cart">
-                        <h2 class="cart-title">Your Cart</h2>
-                        <div class="cart-content">
-
-                        </div>
-                        <!-- Total -->
-                        <div class="total">
-                            <div class="total-title">Total</div>
-                            <div class="total-price">$0</div>
-                        </div>
-                        <!-- Buy Button -->
-                        <button type="button" class="btn-buy">Buy Now</button>
-                        <!-- Cart Case -->
-                        <i class="bx bx-x" id="close-cart"></i>
-                    </div>
-                    <!-- Test -->
                     <a th:href="@{/}" class="navbar-brand"><img id="logo" src="/img/logo.png"
                                                                 alt="Logo" title="Logo"></a>
-
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarResponsive">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
+<!--                    <button class="navbar-toggler" type="button" data-toggle="collapse"-->
+<!--                            data-target="#navbarResponsive">-->
+<!--                        <span class="navbar-toggler-icon"></span>-->
+<!--                    </button>-->
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item"><a th:href="@{/}" class="nav-link active">Home</a></li>

@@ -35,62 +35,6 @@
 </head>
 <body>
 
-<!--<div class="containerNav" th:fragment="navigation"> -->
-    <!-- Top Bar -->
- <!--   <div class="top-bar">
-        <div class="container">
-            <div class="col-12 text-right">
-                <div class="buttons text-left">
-                    <a th:href="@{sendToLogin}">Log In</a>
-                    <a th:href="@{sendToProducer}">Register</a>
-                </div>
-                <p><a href="tel:+2108374924">Call us at 210(083)</a></p>
-            </div>
-        </div>
-    </div>          -->
-    <!-- End Top Bar -->
-
-    <!-- Navigation bar-->
-<!--    <nav class="navbar bg-light navbar-light navbar-expand-lg">
-        <div class="container">
-
-            <a th:href="@{/}" class="navbar-brand"><img id="logo" src="/img/logo.png"
-                                                        alt="Logo" title="Logo"></a>
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarResponsive">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a th:href="@{/}" class="nav-link active">Home</a></li>
-                    <li class="nav-item"><a th:href="@{sendToProductList}" class="nav-link ">Shop</a></li>
-                    <li class="nav-item"><a th:href="@{sendToIndex}" class="nav-link">Services</a></li>       -->
-                    <!-- Navbar dropdown -->
-<!--                    <li class="nav-item dropdown">
-                        <a href=""
-                           id="navbarDropdown"
-                           class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false">
-                            Dropdown
-                        </a>       -->
-                        <!-- Dropdown menu -->
- <!--                       <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a href="" class="dropdown-item nav-link">Action</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a href="" class="dropdown-item nav-link">AnotherAction</a></li>
-                        </ul>        -->
-                        <!-- End of Dropdown -->
-   <!--                 </li>         -->
-                    <!-- End of Navbar dropdown -->
-  <!--                  <li class="nav-item"><a href="" class="nav-link">Contact Us</a></li>
-                </ul>
-
-            </div>
-        </div>
-    </nav>               -->
-    <!-- End of Navigation -->
-<!--</div>         -->
 
 <!-- Top Bar -->
 <div class="top-bar">
@@ -113,32 +57,12 @@
         <a th:href="@{/}" class="navbar-brand"><img id="logo" src="/img/logo.png"
                                                     alt="Logo" title="Logo"></a>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#navbarResponsive">
-            <span class="navbar-toggler-icon"></span>
-        </button>
 
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a th:href="@{/}" class="nav-link">Home</a></li>
                 <li class="nav-item"><a th:href="@{sendToProductList}" class="nav-link ">Products</a></li>
                 <li class="nav-item"><a th:href="@{sendToShopByCounty}" class="nav-link">Shop By County</a></li>
-                <!-- Navbar dropdown   NOT SURE IF NEEDED-->
-                <!--       <li class="nav-item dropdown">
-                         <a href=""
-                            id="navbarDropdown"
-                            class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false">
-                           Dropdown
-                         </a>
-               -->          <!-- Dropdown menu -->
-                <!--         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <li><a href="" class="dropdown-item nav-link">Action</a></li>
-                          <li><hr class="dropdown-divider"></li>
-                          <li><a href="" class="dropdown-item nav-link">AnotherAction</a></li>
-                        </ul>
-        -->                <!-- End of Dropdown -->
-                <!--        </li>                -->
-                <!-- End of Navbar dropdown -->
                 <li class="nav-item"><a href="" class="nav-link">Contact Us</a></li>
                 <li class="nav-item"><input type="text" placeholder="Search...." href="products"/></li>
                 <li class="nav-item"><i class="fa fa-search" aria-hidden="true"></i></li>
@@ -157,7 +81,7 @@
             <img src="/images/logo_image.jfif" alt="">
             <h2>Welcome</h2>
             <p>Thank you for being registered in our Website! If you are not press the register button below to register</p>
-            <a th:href="@{sendToProducer}">Register</a>
+            <a th:href="@{sendToRegister}">Register</a>
         </div>
 
         <div class="col-md-9 login-right">

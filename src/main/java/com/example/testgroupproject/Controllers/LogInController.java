@@ -23,7 +23,7 @@ public class LogInController {
     ProducerServiceInterface producerService;
 
     @PostMapping("/loginUser")
-    public String loginUser(@ModelAttribute("user") CustomerGuest user, Model m, HttpSession session){
+    public String loginUser(@ModelAttribute("user") CustomerGuest user, HttpSession session){
 
         Integer userId = user.getId();
         Optional<CustomerGuest> userData = Optional.ofNullable(customerService.findByCusUsername(user.getCusUsername()));
@@ -31,7 +31,7 @@ public class LogInController {
 
 
         if(!userData.isEmpty() && user.getCusPassword().equals(userData.get().getCusPassword())) {
-            session.setAttribute("loggedInUser", userData.get());
+            session.setAttribute("loggedInUser", userData.get().getCusUsername());
             return "home";
         }else{
             return "login";

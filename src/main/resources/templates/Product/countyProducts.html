@@ -26,22 +26,20 @@
     <div th:replace="~{Fragments/Navbar :: navigation}"></div>
         <!-- -------------------------------------------------- -->
         <!-- Shop -->
-        <section class="shop container">
+        <main class="container-products">
             <h2 class="section-title">Shop Products</h2>
             <!-- Content -->
-            <div class="shop-content">
+            <div class="container-products-inner">
                 <th:block th:each = "product: ${products}">
 
-                    <div class="product-box">
-                        <img th:src="'/img/HomeImage/Products/'+${product.getId()}+'.jpg'" alt="" class="product-img">
+                    <div class="product">
+                        <img th:src="'/img/HomeImage/Products/'+${product.getId()}+'.jpg'" alt="" class="product-img img-fluid">
                         <h2 class="product-title" th:text="${product.getProductName()}"></h2>
                         <span class="price" th:text="${product.getProductPrice()}"></span>
-                        <i class='bx bx-shopping-bag add-cart'></i>
                     </div>
                 </th:block>
-
             </div>
-        </section>
+        </main>
 
         <div th:replace="~{Fragments/Footer :: footer}"></div>
         <!-- Link to JS -->

@@ -42,12 +42,13 @@ public class ImpProductService implements ProdServiceInterface {
     }
 
     @Override
+    public List<Product> getRandomProductsById(Integer id) {
+        return null;
+    }
+
+    @Override
     public void deleteProduct(Product p) {
         productRepo.delete(p);
     }
 
-//    @Override
-//    public List<Product> findProductByFkCounty_Id(String pName, String prodInfo, Double price) {
-//        return productRepo.findProductByFkCounty_Id(pName, prodInfo, price);
-//    }
 }

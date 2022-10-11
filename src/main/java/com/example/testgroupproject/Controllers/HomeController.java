@@ -11,10 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpSession;
+import java.util.Optional;
 
 //Main Page Controller
 @Controller
@@ -32,19 +32,12 @@ public class HomeController {
     CountyServiceInterface countyService;
 
 
+    @RequestMapping(value = "/", method = { RequestMethod.GET, RequestMethod.POST })
+    public String redirectToHome(HttpSession session) {
 
-    @GetMapping("/")
-    public String showHome() {
-
-        return("home");
-    }
-
-    @PostMapping("/")
-    public String redirectToHome() {
-
+     //   session.getAttribute("loggedInUser");
         return("/home");
     }
-
 
 
     @RequestMapping(value = "/sendToProduct", method = { RequestMethod.GET, RequestMethod.POST })
@@ -54,12 +47,6 @@ public class HomeController {
     }
 
 
-    @RequestMapping(value = "/sendToCustomer", method = { RequestMethod.GET, RequestMethod.POST })
-    public String redirectToCustomer() {
-
-        return ("Customer/CustomerForm");
-    }
-
 
     @RequestMapping(value = "/sendToOrder", method = { RequestMethod.GET, RequestMethod.POST })
     public String redirectToOrder() {
@@ -68,19 +55,10 @@ public class HomeController {
     }
 
 
-    @RequestMapping(value = "/sendToProducer", method = { RequestMethod.GET, RequestMethod.POST })
+    @RequestMapping(value = "/sendToRegister", method = { RequestMethod.GET, RequestMethod.POST })
     public String redirectToProducer(){
 
         return ("register");
-    }
-
-
-    @RequestMapping(value = "/sendToProductList", method = { RequestMethod.GET, RequestMethod.POST })
-    public String redirectToProductList(ModelMap mm){
-
-        mm.addAttribute("products", prodService.getAllProducts());
-
-        return ("Product/ProductList");
     }
 
 
@@ -116,12 +94,6 @@ public class HomeController {
         model.addAttribute("user", user);
         model.addAttribute("producer",producer);
         return "login";
-    }
-
-    @RequestMapping(value = "/sendToCart", method = { RequestMethod.GET, RequestMethod.POST })
-    public String redirectToCart() {
-
-        return "countyProducts";
     }
 
 

@@ -15,7 +15,6 @@ public interface ProductRepo extends JpaRepository<Product, Integer> {
 
     @Query(value = "select * from products join county on FK_county_ID = county_id Where county_id = :id", nativeQuery = true)
     List<Product> findProductByCounty_Id(@Param("id") Integer id);
-//    List<Product> findByProductName(String productName);
-//
-//    List<Product> findByProductPrice(double productPrice);
+
+
 }

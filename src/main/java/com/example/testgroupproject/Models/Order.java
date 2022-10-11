@@ -28,6 +28,11 @@ public class Order {
     private CustomerGuest fkCustomer;
 
     public Order(String paymentType) {
+        this.paymentType = paymentType;
+    }
+
+    public Order(Double totalPrice){
+        this.totalPrice = totalPrice;
     }
 
     public Order() {

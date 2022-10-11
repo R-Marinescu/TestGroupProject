@@ -1,10 +1,9 @@
 package com.example.testgroupproject.Repositories;
 
-import com.example.testgroupproject.Models.Order;
+import com.example.testgroupproject.Models.ProductsOrder;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface OrderRepo extends JpaRepository<Order, Integer> {
-
+public interface ProdOrderRepo extends JpaRepository<ProductsOrder, Integer> {
 }

@@ -44,6 +44,17 @@ public class ProductControllerCRUD {
         return "Product/UpdateProduct";
     }
 
+//    @GetMapping("/getProduct/{id}")
+//    public String getProduct(@PathVariable("id") Integer id, ModelMap mm) {
+//
+//        //Calling method that fetches DB item by id
+//        Product product = prodService.getProductById(id);
+//
+//        //Stores value on variable product and binds it on variable "product" for View
+//        mm.addAttribute("product", product);
+//        return "Product/UpdateProduct";
+//    }
+
     //Takes object id from the method "showUpdatedProductForm" and updates it
     @PostMapping("/updateProduct/{id}")
     public String updateProduct(@PathVariable("id") Integer id,

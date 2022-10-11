@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- Box Icons -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Home</title>
     <!-- FavIcon   -->
     <link rel="stylesheet" type="text/css" th:href="@{/img/faviconHome.png}"/>
@@ -26,12 +24,12 @@
     <!-- Top Bar -->
     <div class="top-bar">
         <div class="container">
-            <div class="col-12 text-right">
-              <div class="buttons text-right">
+            <div class="col-lg-8">
+              <div class="buttons d-flex justify-content-around" >
                 <a th:href="@{sendToLogin}">Log In</a>
-                <a th:href="@{sendToProducer}">Register</a>
+                <a th:href="@{sendToRegister}">Register</a>
+                <p th:text="'Hello, ' + ${#session.getAttribute('loggedInUser')}"></p>
               </div>
-             <!--   <p id="banner-info"><a href="tel:+2108374924">Call us at 210(083)</a></p> -->
             </div>
         </div>
     </div>
@@ -40,34 +38,8 @@
     <!-- Navigation bar-->
     <nav class="navbar bg-light navbar-light navbar-expand-lg">
         <div class="container">
-          <!-- Test -->
-          <!-- Car-Icon -->
-          <i class='bx bx-shopping-bag' id="cart-icon"></i>
-          <!-- Cart -->
-          <div class="cart">
-            <h2 class="cart-title">Your Cart</h2>
-            <div class="cart-content">
-
-            </div>
-            <!-- Total -->
-            <div class="total">
-              <div class="total-title">Total</div>
-              <div class="total-price">$0</div>
-            </div>
-            <!-- Buy Button -->
-            <button type="button" class="btn-buy">Buy Now</button>
-            <!-- Cart Case -->
-            <i class="bx bx-x" id="close-cart"></i>
-          </div>
-          <!-- Test -->
-
           <a th:href="@{/}" class="navbar-brand"><img id="logo" src="/img/logo.png"
             alt="Logo" title="Logo"></a>
-
-          <button class="navbar-toggler" type="button" data-toggle="collapse" 
-            data-target="#navbarResponsive">
-            <span class="navbar-toggler-icon"></span>
-          </button>
 
             <div class="collapse navbar-collapse" id="navbarResponsive">
               <ul class="navbar-nav ml-auto">
@@ -101,14 +73,12 @@
                   <h1>Amazing marmelade</h1>
                   <div class="border-top border-primary w-50 mx-auto my-3"></div>
                   <h3 class="pb-3">Greece's Best Marmelade</h3>
-                  <!--<a href="#" class="btn btn-danger btn-lg mr-2">View Demo</a>
-                  <a href="#" class="btn btn-primary btn-lg ml-2">Start Now</a> -->
                 </div>
               </div>
             </div>
           </div>
         </div>
-<!--sdfbsk-->
+
         <div class="carousel-item">
           <img src="/img/HomeImage/carousel/cheese.jpg" alt="" class="w-100">
           <div class="carousel-caption">
@@ -116,7 +86,6 @@
               <div class="row justify-content-end text-right">
                 <div class="col-5 bg-custom d-none d-md-block py-3 px-0 pr-3">
                   <p class="lead pb-3">Explore our vast amount of traditional cheese that will satisfy all your need</p>
-                  <!--<a href="#" class="btn btn-danger btn-lg">See Phone</a>-->
                 </div>
               </div>
             </div>
@@ -131,7 +100,6 @@
                 <div class="col-7 bg-custom d-none d-md-block py-3 px-0 pl-3">
                   <h3 class="pb-3">ENJOY</h3>
                   <p class="lead">Our sweets and Candy ,traditional or not, will certainly satisfy your sweet-tooth</p>
-                  <!--<a href="#" class="btn btn-primary btn-lg">Start Now</a>-->
                 </div>
               </div>
             </div>
@@ -145,7 +113,6 @@
               <div class="row justify-content-end text-right">
                 <div class="col-5 bg-custom d-none d-md-block py-3 px-0 pr-3">
                   <p class="lead pb-3">Anything a person would need and more</p>
-                  <!--<a href="#" class="btn btn-danger btn-lg">See Phone</a>-->
                 </div>
               </div>
             </div>
@@ -175,8 +142,8 @@
       <h1 class="text-dark pt-4">Most Popular</h1>
       <div class="border-top border-primary w-25 mx-auto my-3"></div>
       <!--<p class="lead">For Every One</p>  -->
-    </div>  
-    
+    </div>
+
     <!-- Featured Product Section -->
 
       <div class="container-products">
@@ -283,7 +250,6 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script th:src="@{/js/shoppingCart.js}"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

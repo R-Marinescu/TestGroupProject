@@ -21,6 +21,6 @@ public interface ProdServiceInterface {
 
     List<Product> getProductsByCounty(Integer countyId);
 
-  //  List<Product> findProductByFkCounty_Id(String pName, String prodInfo, Double price);
+    List<Product> getRandomProductsById(Integer id);
 
 }

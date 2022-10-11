@@ -8,29 +8,29 @@ import javax.persistence.*;
 @Entity
 @Table(name = "products_order")
 public class ProductsOrder {
-    @EmbeddedId
-    private ProductsOrderId id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "prodOrder_Id", nullable = false)
+    private Integer id;
 
-    @MapsId("fkOrderId")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumn(name = "FK_order_ID", nullable = false)
+    @JoinColumn(name = "FK_order_ID")
     private Order fkOrder;
 
-    @MapsId("fkProductId")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumn(name = "FK_product_ID", nullable = false)
+    @JoinColumn(name = "FK_product_ID")
     private Product fkProduct;
 
     @Column(name = "product_Qty")
     private Integer productQty;
 
-    public ProductsOrderId getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(ProductsOrderId id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
