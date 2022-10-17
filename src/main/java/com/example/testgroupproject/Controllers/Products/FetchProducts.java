@@ -19,8 +19,6 @@ public class FetchProducts {
 
 //    ----- Products Controllers -------
 
-
-//    Shows Shop By County fetches all counties
     @RequestMapping(value = "/sendToShopByCounty", method = { RequestMethod.GET, RequestMethod.POST })
     public String redirectToShopByCounty(ModelMap mm) {
 
@@ -45,6 +43,4 @@ public class FetchProducts {
         return ("Product/ProductList");
     }
 
-
-    //  ----- End Of Controllers that show products by county -------
 }

@@ -4,6 +4,7 @@ body {
     color: #616971;
 }
 
+
 /*============== TOP BAR HEADER ============ */
 .top-bar{
     background: #7aaec4;
@@ -33,7 +34,7 @@ body {
     z-index: 1;
 }
 .nav-item {
-    padding: .5rem;
+    padding: .9rem;
 }
 .nav-link {
     color: #5b5555!important;
@@ -132,7 +133,6 @@ body {
 }
 
 .container-products .container-products-inner .product img{
-
     height: 25rem;
 }
 

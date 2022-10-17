@@ -33,9 +33,8 @@ public class HomeController {
 
 
     @RequestMapping(value = "/", method = { RequestMethod.GET, RequestMethod.POST })
-    public String redirectToHome(HttpSession session) {
+    public String redirectToHome() {
 
-     //   session.getAttribute("loggedInUser");
         return("/home");
     }
 
