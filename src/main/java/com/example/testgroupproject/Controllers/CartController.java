@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.UUID;
 
@@ -18,15 +19,15 @@ public class CartController {
 
 
     @PostMapping("/addToCart")
-    public String addToCart(HttpSession session, Model model, @RequestParam("id")Integer id,
+    public String addToCart(HttpServletRequest request, Model model, @RequestParam("id")Integer id,
                             @RequestParam("quantity") int quantity) {
 
         //sessionToken
-        String sessionToken = (String) session.getAttribute("sessionToken");
+        String sessionToken = (String) request.getSession(true).getAttribute("sessionToken");
         if(sessionToken == null){
 
             sessionToken = UUID.randomUUID().toString();
-            session.setAttribute("sessionToken", sessionToken);
+            request.getSession().setAttribute("sessionToken", sessionToken);
             shoppingCartService.addShoppingCartFirstTime(id,sessionToken,quantity);
         }else {
             shoppingCartService.addToExistingShoppingCart(id,sessionToken,quantity);

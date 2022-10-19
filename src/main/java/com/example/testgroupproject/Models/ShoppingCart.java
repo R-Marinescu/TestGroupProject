@@ -1,9 +1,7 @@
 package com.example.testgroupproject.Models;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
+import java.util.*;
 
 @Entity
 @Table(name = "shoppingCart")
@@ -19,7 +17,7 @@ public class ShoppingCart {
     @Transient
     private int itemsNumber;
     @OneToMany(cascade = CascadeType.ALL)
-    private Collection<CartItem> items;
+    private Set<CartItem> items = new HashSet<>();
     private String sessionToken;
 
     public Long getId() {
@@ -47,18 +45,18 @@ public class ShoppingCart {
     }
 
     public ShoppingCart() {
-        items = new ArrayList<CartItem>();
+
     }
 
     public int getItemsNumber() {
         return this.items.size();
     }
 
-    public Collection<CartItem> getItems() {
+    public Set<CartItem> getItems() {
         return items;
     }
 
-    public void setItems(Collection<CartItem> items) {
+    public void setItems(Set<CartItem> items) {
         this.items = items;
     }
 

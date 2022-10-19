@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.Set;
 
 @Service
 public class ShoppingCartServiceImp implements ShoppingCartService {
@@ -27,6 +28,7 @@ public class ShoppingCartServiceImp implements ShoppingCartService {
         cartItem.setProduct(prodService.getProductById(id));
         shoppingCart.getItems().add(cartItem);
         shoppingCart.setSessionToken(sessionToken);
+        shoppingCart.setDate(new Date());
         return shoppingCartRepo.save(shoppingCart);
 
     }
@@ -36,17 +38,32 @@ public class ShoppingCartServiceImp implements ShoppingCartService {
 
         ShoppingCart shoppingCart = shoppingCartRepo.findBySessionToken(sessionToken);
         Product p = prodService.getProductById(id);
-        for(CartItem item: shoppingCart.getItems()) {
-             if(p.getId().equals(item.getProduct().getId())) {
-                 item.setQuantity(item.getQuantity()+quantity);
-                 return shoppingCartRepo.save(shoppingCart);
-             }
+        Boolean productDoesExistInTheCart = false;
+        if (shoppingCart != null){
+            Set<CartItem> items = shoppingCart.getItems();
+            for (CartItem item : items){
+                
+                if (item.getProduct().equals(p)) {
+                    productDoesExistInTheCart = true;
+                    item.setQuantity(item.getQuantity() + quantity);
+                    shoppingCart.setItems(items);
+                    return shoppingCartRepo.saveAndFlush(shoppingCart);
+                }
+            }
         }
-        CartItem cartItem = new CartItem();
-        cartItem.setDate(new Date());
-        cartItem.setQuantity(quantity);
-        cartItem.setProduct(p);
-        shoppingCart.getItems().add(cartItem);
-        return shoppingCartRepo.save(shoppingCart);
+        if(!productDoesExistInTheCart && (shoppingCart != null))
+        {
+            CartItem cartItem1 = new CartItem();
+            cartItem1.setDate(new Date());
+            cartItem1.setQuantity(quantity);
+            cartItem1.setProduct(p);
+            shoppingCart.getItems().add(cartItem1);
+            return shoppingCartRepo.saveAndFlush(shoppingCart);
+        }
+        return this.addShoppingCartFirstTime(id, sessionToken, quantity);
+
     }
+
+
+
 }
