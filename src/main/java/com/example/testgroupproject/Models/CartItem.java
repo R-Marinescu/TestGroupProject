@@ -16,6 +16,9 @@ public class CartItem {
     @ManyToOne(fetch = FetchType.EAGER)
     private Product product;
 
+    public CartItem() {
+    }
+
     public Long getId() {
         return id;
     }

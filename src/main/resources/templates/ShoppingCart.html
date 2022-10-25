@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <!-- font awesome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <title>Shopping Cart</title>
+    <!-- Box Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- FavIcon   -->
+    <link rel="stylesheet" type="text/css" th:href="@{/img/faviconHome.png}"/>
+    <!-- Style Css -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+            crossorigin="anonymous"></script>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+</head>
+<body>
+<div th:replace="~{Fragments/Navbar :: navigation}"></div>
+<!-- -------------------------------------------------- -->
+<!-- Shop -->
+<main>
+    <div class=" table-responsive shopping-cart"
+         style="background-color: #fff">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Product</th>
+                <th class="text-center">Quantity</th>
+                <th class="text-center">Subtotal</th>
+                <th class="text-center">Discount</th>
+                <th class="text-center"><a
+                        class="btn btn-sm btn-outline-danger clear"
+                        th:href="@{/clearShoppingCart}">Clear </a></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="cartItem : ${shoppingCart.items}">
+                <td>
+                    <div class="card" style="width: 6rem; margin: 0 auto;">
+                        <a href="#"><img class="product img img-fluid" th:src="'/img/HomeImage/Products/'+${cartItem.product.getId()}+'.jpg'" alt="Product"></a>
+                        <div class="product-info">
+                            <h4 class="product-title">
+
+                                <span class="product-title" th:text="${cartItem.product.getProductName()}"></span>
+                            </h4>
+
+                            <span class="price" th:text="${cartItem.product.getProductPrice()}"></span>
+
+                        </div>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <form action="/updateShoppingCart" method="post">
+                        <input type="hidden" th:value="${cartItem.id}"
+                               name="item_id"/>
+                        <div class="input-group">
+                            <input type="number" name="quantity"
+                                   th:value="${cartItem.quantity}"
+
+                                   class="form-control round-input form-control-sm"/>
+                            <button class="btn btn-success btn-sm btn-custom"
+                                    type="submit">
+                                <i class="fa fa-check"></i>
+                            </button>
+                        </div>
+                    </form>
+                </td>
+                <td class="text-center text-lg text-medium">$[[${cartItem.product.productPrice
+                    * cartItem.quantity}]]
+                </td>
+                <td class="text-center"><a class="remove-from-cart"
+                                           th:href="@{/removeCartItem/{id}(id = ${cartItem.id})}"
+                                           data-toggle="tooltip"><i
+                        class="fa fa-trash"></i></a></td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <div class="shopping-cart-footer">
+        <div class="column">
+
+        </div>
+        <div class="column text-lg">
+            <b>Subtotal: <span class="text-medium">$[[${shoppingCart.totalPrice}]]</span></b>
+        </div>
+    </div>
+</main>
+
+<div th:replace="~{Fragments/Footer :: footer}"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

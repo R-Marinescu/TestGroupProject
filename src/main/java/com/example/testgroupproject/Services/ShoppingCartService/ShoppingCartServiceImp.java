@@ -3,6 +3,7 @@ package com.example.testgroupproject.Services.ShoppingCartService;
 import com.example.testgroupproject.Models.CartItem;
 import com.example.testgroupproject.Models.Product;
 import com.example.testgroupproject.Models.ShoppingCart;
+import com.example.testgroupproject.Repositories.CartItemRepo;
 import com.example.testgroupproject.Repositories.ShoppingCartRepo;
 import com.example.testgroupproject.Services.ProductService.ProdServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,9 @@ public class ShoppingCartServiceImp implements ShoppingCartService {
     ShoppingCartRepo shoppingCartRepo;
     @Autowired
     ProdServiceInterface prodService;
+
+    @Autowired
+    CartItemRepo cartItemRepo;
 
     @Override
     public ShoppingCart addShoppingCartFirstTime(Integer id, String sessionToken, int quantity) {
@@ -64,6 +68,19 @@ public class ShoppingCartServiceImp implements ShoppingCartService {
 
     }
 
+    @Override
+    public ShoppingCart getShoppingCartBySessionToken(String sessionToken) {
+
+        return shoppingCartRepo.findBySessionToken(sessionToken);
+    }
+
+    @Override
+    public void updateShoppingCartItem(Long id, int quantity) {
+       CartItem cartItem = cartItemRepo.findById(id).get();
+       cartItem.setQuantity(quantity);
+       cartItemRepo.saveAndFlush(cartItem);
+
+    }
 
 
 }

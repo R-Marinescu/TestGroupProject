@@ -35,7 +35,7 @@
             <div class="container-products-inner">
                 <th:block th:each = "product: ${products}">
                     <div class="product">
-                        <img th:src="'/img/HomeImage/Products/'+${product.getId()}+'.jpg'" alt="" class="product-img img-fluid">
+                        <img th:src="'/img/HomeImage/Products/'+${product.getId()}+'.jpg'" alt="" class="img-fluid">
                         <h2 class="product-title" th:text="${product.getProductName()}"></h2>
                         <span class="price" th:text="${product.getProductPrice()}"></span>
                         <div class="cart-button mt-3 px-2 align-items-center">
@@ -70,6 +70,7 @@
                     </div>
                 </th:block>
             </div>
+
         </main>
 
         <div th:replace="~{Fragments/Footer :: footer}"></div>
